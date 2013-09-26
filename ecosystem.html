@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>OGC IoT RESTful API</title>
+		<link rel="shortcut icon" href="http://sensorweb.geomatics.ucalgary.ca/gsw/sites/default/files/zeropoint_favicon_1.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/bootswatch.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		
+	</head>
+	<body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="80">
+		<!-- Navbar -->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="index.html">OGC IoT RESTful API</a>
+					<div class="nav-collapse collapse" id="main-menu">
+						<ul class="nav pull-right" id="main-menu-right">
+							<li><a href="index.html">Home</a></li>
+							<li><a id="swatch-link" href="background.html">FAQ</a></li>
+							<li><a id="swatch-link" href="quickstart.html">Quickstart</a></li>
+							<li><a id="swatch-link" href="datamodel.html">Data Model</a></li>
+							<li><a id="swatch-link" href="api.html">API Reference</a></li>
+							<!--<li><a id="swatch-link" href="libraries.html">Libraries</a></li>-->
+							<li><a id="swatch-link" href="ecosystem.html">Ecosystem</a></li>
+							<li class="dropdown" id="preview-menu">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Community<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a target="_blank" href="https://lists.opengeospatial.org/mailman/listinfo/swe-iot.swg">OGC Maillist</a></li>
+									<li><a target="_blank" href="https://portal.opengeospatial.org/wiki/SWEIoTSwg">OGC Twiki</a></li>
+									<!--<li><a id="swatch-link" href="#">Forum</a></li>-->
+									<li><a href="mailto:geosensorweblab@gmail.com">Email Us</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="container">
+			<h1>Ecosystem</h1>
+			<hr>
+			<div class="subnav">
+				<ul class="nav nav-pills">
+					<li><a href="#SampleServices">Sample Services</a></li>
+					<li><a href="#InteractiveSDKs">Interactive SDKs</a></li>
+					<li><a href="#Applications">Applications</a></li>
+					<li><a href="#Libraries">Libraries</a></li>
+					<li><a href="#Hardware">Hardware</a></li>
+					<li><a href="#Producers">Producers</a></li>
+					<li><a href="#Consumers">Consumers</a></li>
+				</ul>
+			</div>
+			<hr>
+			
+			<div class="row">
+				<section id="SampleServices">
+					<h2>Sample Services</h2>
+					<p class="lead">To demonstrate the OGC IoT RESTful API, we current have one live service for you to experiment with:</p>
+					<br/>
+<table class="table table-striped">
+<thead>
+						<tr>
+							<th>Sample Service</th>
+							<th>Description</th>
+						</tr>
+						</thead>
+						<tr>
+							<td><a target="_blank" href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/">OGC IoT RESTful Sample Service V0.9</a></td>
+							<td>This sample service supports CRUD functions with simulated dataset. Please note that as this sample service serves the purpose of demonstration, the data in this service is reset to default every day.</td>
+						</tr>
+					</table>
+					<br/>
+				</section>
+				<section id="InteractiveSDKs">
+					<h2>Interactive SDKs</h2>
+					<p class="lead">To help you to understand the requests and responses in the OGC IoT RESTful API, we currently have an interactive SDK for you to explore:</p>
+					<br/>
+<table class="table table-striped">
+<thead>
+						<tr>
+							<th>Interactive SDK</th>
+							<th>Description</th>
+						</tr>
+						</thead>
+						<tr>
+							<td><a target="_blank" href="http://tania.geocens.ca/IoTWebClient/">IoT RESTful API Interactive SDK</a></td>
+							<td>This interactive SDK provides some examples of requests that can be sent to an OGC IoT RESTful service.</td>
+						</tr>
+					</table>
+					<br/>
+				</section>
+				<section id="Applications">
+					<h2>Applications</h2>
+					<p class="lead">We currently have one very simple client for you to explore the sample service:</p>
+					<br/>
+<table class="table table-striped">
+<thead>
+						<tr>
+							<th>Application</th>
+							<th>Description</th>
+						</tr>
+						</thead>
+						<tr>
+							<td><a target="_blank" href="http://tania.geocens.ca/SWE-IoT-UI-v0.9/">Sample application</a></td>
+							<td>This sample application provides a simple web user interface for users to browse the entities in an OGC IoT RESTful sample service. This sample application also showcases that charts and maps can be applied to represent observations and locations.</td>
+						</tr>
+					</table>
+					<br/>
+				</section>
+				<section id="Libraries">
+					<h2>Libraries</h2>
+					<p class="lead">An open source Javascript library will be available on GitHub soon!</p>
+				</section>
+<section id="Hardware">
+					<h2>Hardware</h2>
+   		 			<p class="lead">The OGC IoT RESTful API is designed for resource constraint IoT devices. The API can be within the major IoT development platforms, such as Arduino, Netduino (.NET micro), Raspberry Pi (Linux), mbed, etc. Currently we have implemented the OGC IoT RESTful API using the .NET Micro Framework for the Netduino devices.</p>
+   		 			<center><img src="img/netduino3.jpg" alt="The Sensor Web Layer Stack" align="middle" width="300px"></center>
+   		 			<p class="lead">The table below shows a list of popular IoT prototyping platforms. Why don't you choose an IoT platform, implement a library compatible to the OGC IoT RESTful API, and share with the world!!</p>
+	
+   		 			<br />
+<table class="table table-striped">
+<thead>
+   				 <tr>
+   					 <th><p>Board</p></th>
+   					 <th><p>Gateway</p></th>
+   					 <th><p>More Details</p></th>
+   				 </tr>
+			</thead>
+   			 <tr>
+   				 <td><p>Arduino Ethernet</p></td>
+   				 <td><p>Ethernet</p></td>
+   				 <td><p><a href="http://arduino.cc/en/Main/ArduinoBoardEthernet">Click</a></p></td>
+   			 </tr>
+   			 <tr>
+   				 <td><p>Arduino Due</p></td>
+   				 <td><p>Ethernet, WiFi, Cellular</p></td>
+   				 <td><p><a href="http://arduino.cc/en/Main/arduinoBoardDue">Click</a></p></td>
+ 			</tr>
+  			 <tr>
+  				 <td><p>Arduino Mega 2560</p></td>
+  				 <td><p>Ethernet, WiFi, Cellular</p></td>
+   				 <td><p><a href="http://arduino.cc/en/Main/arduinoBoardMega2560">Click</a></p></td>
+   			 </tr>
+   			 <tr>
+  				<td><p>ARM mbed LPC1768</p></td>
+   				 <td><p>Ethernet</p></td>
+   				 <td><p><a href="http://mbed.org/handbook/mbed-NXP-LPC1768">Click</a></p></td>
+   			 </tr>
+   			 <tr>
+   				 <td><p>Netduino Plus</p></td>
+   				 <td><p>Ethernet, WiFi, Cellular</p></td>
+  				 <td><p><a href="http://www.netduino.com/netduinoplus/specs.htm">Click</a></p></td>
+  			 </tr>
+   			 <tr>
+   				 <td><p>Netduino Plus 2</p></td>
+   				 <td><p>Ethernet, WiFi, Cellular</p></td>
+   				 <td><p><a href="http://netduino.com/netduinoplus2/specs.htm">Click</a></p></td>
+  			 </tr>
+   			 <tr>
+   				 <td><p>Netduino</p></td>
+   				 <td><p>WiFi</p></td>
+   				 <td><p><a href="http://www.netduino.com/netduino/specs.htm">Click</a></p></td>
+   			 </tr>
+   			 <tr>
+   				 <td><p>Netduino 2</p></td>
+   				 <td><p>WiFi</p></td>
+   				 <td><p><a href="http://www.netduino.com/netduino2/specs.htm">Click</a></p></td>
+   			 </tr>   				 
+   			 <tr>
+   				 <td><p>Raspberry Pi</p></td>
+   				 <td><p>Ethernet</p></td>
+   				 <td><p><a href="http://www.raspberrypi.org/">Click</a></p></td>
+   			 </tr>   			 
+   		</table>
+   		
+		</section>
+		<section id="Producers">
+			<h2>Producers</h2>
+			<p>To be announced!</p>
+		</section>
+		<section id="Consumers">
+			<h2>Consumers</h2>
+			<p>To be announced!</p>
+		</section>
+			</div>
+			
+			<div id="footer" class="clearfix">
+				<div class="container">
+					<hr>
+					<div id="footer-wrapper">
+						<div class="row-fluid">
+							<div class="span12">
+								<div class="span6"></div><!-- end of col-460 -->
+								<div class="span6">
+									<div class="social-icons"></div><!-- end of .social-icons -->
+								</div><!-- end of col-460 fit -->
+							</div>
+							<div class="row-fluid">
+								<div class="span5 copyright"> © 2013 | OGC IoT RESTful API </div> <!-- end copyright -->
+								<div class="span5 powered"></div><!-- end .powered -->
+							</div>
+						</div><!-- end of row -->
+					</div><!-- end #footer-wrapper -->
+				</div>
+			</div><!-- end #footer -->
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.smooth-scroll.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootswatch.js"></script>
+	</body>
+</html>
