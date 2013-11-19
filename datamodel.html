@@ -206,7 +206,7 @@
 						<p><strong>Example: </strong></p>
 						<pre><code>{
 							"Description":"thing_1",
-							"Self-Link":"http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)",
+							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(1)",
 							"Locations":
 							{
 								"Association-Link":"Things(1)/$links/Locations",
@@ -277,7 +277,7 @@
 								"Navigation-Link": "Locations(1)/Things"
 							},
 							"Time": "2012-11-17T06:33:19-0700",
-							"Self-Link": "http://demo.student.geocens.ca:8080/SWIOT_V1.0/Locations(1)",
+							"Self-Link": "http://demo.student.geocens.ca:8080/SensorThings_V1.0/Locations(1)",
 							"ID": 1,
 							"Geometry":
 							{
@@ -351,7 +351,7 @@ related in some way. The one constraint is that the observations in a datastream
 								"Navigation-Link":"Datastreams(1)/Thing"
 							},
 							"Description":"datastream_1",
-							"Self-Link":"http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)",
+							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)",
 							"ObservedProperty":
 							{
 								"Association-Link":"Datastreams(1)/$links/ObservedProperty",
@@ -413,7 +413,7 @@ related in some way. The one constraint is that the observations in a datastream
 						<pre><code>{
 							"UnitOfMeasurement":"Fahrenheit",
 							"URN":"urn:ogc:def:property:noaa:ndbc:Water Temperature",
-							"Self-Link":"http://demo.student.geocens.ca:8080/SWIOT_V1.0/ObservedProperties(1)",
+							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/ObservedProperties(1)",
 							"ID":1,
 							"Datastreams":
 							{
@@ -486,7 +486,7 @@ related in some way. The one constraint is that the observations in a datastream
 						<pre><code>{
 							"ResultValue":"64.95856250788312",
 							"Time":"2012-03-02T13:29:01-0700",
-							"Self-Link":"http://demo.student.geocens.ca:8080/SWIOT_V1.0/Observations(1)",
+							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations(1)",
 							"Sensor":
 							{
 								"Association-Link":"Observations(1)/$links/Sensor",
@@ -546,7 +546,7 @@ related in some way. The one constraint is that the observations in a datastream
 						<br/>
 						<p><strong>Example: </strong></p>
 						<pre><code>{
-							"Self-Link":"http://demo.student.geocens.ca:8080/SWIOT_V1.0/Sensors(1)",
+							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/Sensors(1)",
 							"ID":1,
 							"Observations":
 							{
@@ -603,7 +603,7 @@ related in some way. The one constraint is that the observations in a datastream
 						<p><strong>Example: </strong></p>
 						<pre><code>{
 							"Description":"FOI_1",
-							"Self-Link":"http://demo.student.geocens.ca:8080/SWIOT_V1.0/FeaturesOfInterest(1)",
+							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/FeaturesOfInterest(1)",
 							"ID":1,
 							"Observations":
 							{
@@ -623,7 +623,7 @@ related in some way. The one constraint is that the observations in a datastream
 					<section id="TaskingCapabilityProfile">
 						<h2>3. Tasking Profile</h2>
 						<p class="lead">The SensorThings taskingCapability profile is mainly for users to control actuators through a unified web service interface. There are two major parts in the taskingCapability profile. The first part is to convey the acceptable parameters of an actuator and allow users to submit controlling tasks through a RESTful interface. The second part of the taskingCapability profile is to allow SensorThings services to communicate with actuators that are attached to things.</p>
-
+						<section><p class="lead alert alert-info"><strong>Note:</strong> The Protocol element presented here is still underdevelopment. The current draft for Protocol element is included for your interest.</p></section>
 						<section id="TaskingCapability">
 							<h3>3.1 TaskingCapability</h3>
 							<p class="lead"><strong>Definition: </strong>A taskingCapability serves as an executable function of a thing. A taskingCapability could be enabled by an actuator.</p>
@@ -639,6 +639,12 @@ related in some way. The one constraint is that the observations in a datastream
 									</tr>
 								</thead>
 								<tr>
+							                <td>Description</td>
+                   							<td>This is the description of the taskingCapability entity. The content is open to support other description languages.</td>
+                   							<td>Character String</td>
+                   							<td>One (mandatory)</td>
+                 						</tr>
+								<tr>
 									<td>Parameter</td>
 									<td>A taskingCapability may have zero-to-many acceptable parameters. Users can understand the acceptable input of the taskingCapability. An acceptable parameter contains a ParameterID, Description, Use, and Definition (which has UnitOfMeasurement, InputType, and AllowedValues).</td>
 									<td>Parameter</td>
@@ -651,6 +657,7 @@ related in some way. The one constraint is that the observations in a datastream
 									<td>One (mandatory)</td>
 								</tr>
 							</table>
+							<center><img src="img/httpprotocol_class.png" alt="HTTP Protocol Class" align="middle"></center>
 							<br/>
 							<p><strong>Direct relation with other entity types: </strong></p>
 							<table class="table table-striped">
@@ -680,6 +687,7 @@ related in some way. The one constraint is that the observations in a datastream
 							<br/>
 							<p><strong>Example: </strong></p>
 							<pre><code>{
+								"Description": "This is TaskingCapabilities(1).",
 								"Thing":
 								{
 									"Association-Link": "TaskingCapabilities(1)/$links/Thing",
@@ -729,7 +737,7 @@ related in some way. The one constraint is that the observations in a datastream
 									"Association-Link": "TaskingCapabilities(1)/$links/Actuators",
 									"Navigation-Link": "TaskingCapabilities(1)/Actuators"
 								},
-								"Self-Link": "http://demo.student.geocens.ca:8080/SWIOT_V1.0/TaskingCapabilities(1)",
+								"Self-Link": "http://demo.student.geocens.ca:8080/SensorThings_V1.0/TaskingCapabilities(1)",
 								"ID": 1,
 								"Tasks":
 								{
@@ -778,7 +786,7 @@ related in some way. The one constraint is that the observations in a datastream
 							<br/>
 							<p><strong>Example: </strong></p>
 							<pre><code>{
-								"Self-Link": "http://demo.student.geocens.ca:8080/SWIOT_V1.0/Actuators(1)",
+								"Self-Link": "http://demo.student.geocens.ca:8080/SensorThings_V1.0/Actuators(1)",
 								"TaskingCapability":
 								{
 									"Association-Link": "Actuators(1)/$links/TaskingCapability",
@@ -837,12 +845,13 @@ related in some way. The one constraint is that the observations in a datastream
 									<td>A taskingCapability can have zero-to-many tasks. A task must link to one and only one taskingCapability.</td>
 								</tr>
 							</table>
+							<center><img src="img/input_class.png" alt="Input Class" align="middle"></center>
 							<br/>
 							<p><strong>Example: </strong></p>
 							<pre><code>{
 								"Status": "done",
 								"Time": "2012-12-27T20:28:07-0700",
-								"Self-Link": "http://demo.student.geocens.ca:8080/SWIOT_V1.0/Tasks(1)",
+								"Self-Link": "http://demo.student.geocens.ca:8080/SensorThings_V1.0/Tasks(1)",
 								"TaskingCapability":
 								{
 									"Association-Link": "Tasks(1)/$links/TaskingCapability",
@@ -939,7 +948,7 @@ related in some way. The one constraint is that the observations in a datastream
 						<section id="CustomOperations">
 							<h3>4.2 CustomOperations</h3>
 							<p>If the service provides any customized operations, the explanation of those operations should be included in the CustomOperations section. The CustomOperations section lists all the customized operations supported by the service and introduces the protocol of these operations. In the Operation element, the service needs to include the OperationName, HTTPMethod, ReturnType, and any acceptable Parameters.</p>
-							<p>With the information in the Operation element, users can first compose a request URI by appending the OperationName to the service root URI. Then, if the HTTPMethod is HTTP GET, the ParameterNames and input values should be specified as key-value pairs in the query string after the question symbol �?�. Otherwise, the ParameterNames and input values should be put in the message body of the request.</p>
+							<p>With the information in the Operation element, users can first compose a request URI by appending the OperationName to the service root URI. Then, if the HTTPMethod is HTTP GET, the ParameterNames and input values should be specified as key-value pairs in the query string after the question symbol "?". Otherwise, the ParameterNames and input values should be put in the message body of the request.</p>
 							<p>
 								<center><img src="img/OperationElement.png" alt="Operation Element" align="middle"></center>
 								<center><strong>Figure 4. </strong>Operation Element</center>
