@@ -599,15 +599,18 @@
 						</tr>
 						<tr>
 							<td>Create a Sensor entity</td>
-							<td>Link to a Datastream entity.</td>
+							<td>-</td>
 						</tr>
 						<tr>
 							<td>Create an ObservedProperty entity</td>
 							<td>-</td>
 						</tr>
 						<tr>
-							<td rowspan="2">Create an Observation entity</td>
+							<td rowspan="3">Create an Observation entity</td>
 							<td>Link to a Datastream entity.</td>
+						</tr>
+						<tr>
+							<td>Link to a Sensor entity.</td>
 						</tr>
 						<tr>
 							<td>Link to a FeatureOfInterest entity.<br/>(If no link specified, the service must create a FeatureOfInterest entity from the information of the Thing and Location entities.)</td>
@@ -822,18 +825,19 @@
 								<td>-</td>
 							</tr>
 							<tr>
-								<td rowspan="2">Delete a Datastream entity</td>
-								<td>Delete the Sensor entity linked to the Datastream entity.</td>
+								<td> <!--rowspan="2">-->Delete a Datastream entity</td>
+								<td>Delete all the Observation entities linked to the Datastream entity.</td>
+								<!--<td>Delete the Sensor entity linked to the Datastream entity.</td>-->
 							</tr>
 							<!--<tr>
 								<td>Delete the ObservedProperty entities that will not link to any entities after deletion.</td>
-							</tr>-->
-							<tr>
-								<td>Delete all the Observation entities linked to the Datastream entity.</td>
 							</tr>
 							<tr>
+								<td>Delete all the Observation entities linked to the Datastream entity.</td>
+							</tr>-->
+							<tr>
 								<td>Delete a Sensor entity</td>
-								<td>-</td>
+								<td>Delete all the Observation entities linked to the Sensor entity.</td>
 							</tr>
 							<tr>
 								<td>Delete an ObservedProperty entity</td>
