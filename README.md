@@ -9,6 +9,9 @@ This GitHub repository is the latest version of the OGC SensorThings API draft. 
 
 Based on feedback the final 1.0 specification will likely change, so consider this a work in progress, that you are encouraged to help shape. The OGC SW-IoT working group is particularly interested in making the specification easy to implement, so changes driven by attempted implementations will be given high priority.
 
+#Reading the specification
+You can [read the html version of the specification here](http://ogc-iot.github.io/ogc-iot-api/index.html).
+
 #How to give feedback?
 1. [Edit the document on GitHub](https://github.com/OGC-IoT/ogc-iot-api/): if you are familiar with GitHub, please make your proposed changes directly. Instructions are in the README.md file in that repository.
 2. [Submit an "issue" on GitHub](https://github.com/OGC-IoT/ogc-iot-api/issues): GitHub offers a simple interface for posting an issue/comment. Just click the green "New Issue" button.
