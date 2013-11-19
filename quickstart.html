@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>OGC IoT RESTful API</title>
+	<title>OGC SensorThings API</title>
 	<link rel="shortcut icon" href="http://sensorweb.geomatics.ucalgary.ca/gsw/sites/default/files/zeropoint_favicon_1.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Bootstrap -->
@@ -21,7 +21,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="index.html">OGC IoT RESTful API</a>
+				<a class="brand" href="index.html">OGC SensorThings API</a>
 				<div class="nav-collapse collapse" id="main-menu">
 					<ul class="nav pull-right" id="main-menu-right">
 						<li><a href="index.html">Home</a></li>
@@ -49,7 +49,7 @@
 	<div class="container">
 		<h1>Quickstart</h1>
 		<hr>
-		<p class="lead">Getting Started with the OGC IoT RESTful API is easy. Jump right into the <a href="api.html">API resource documentation</a>, explore the <a href="http://tania.geocens.ca/IoTWebClient/">examples in the interactive SDK</a>, or check out the <a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/">reference implementation</a>. Have a question? Read the <a href="faq.html">FAQ</a>. Don't know what to build? Check out the <a href="ecosystem.html">Ecosystems</a>.</p>
+		<p class="lead">Getting Started with the OGC SensorThings API is easy. Jump right into the <a href="api.html">API resource documentation</a>, explore the <a href="http://tania.geocens.ca/IoTWebClient/">examples in the interactive SDK</a>, or check out the <a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/">reference implementation</a>. Have a question? Read the <a href="faq.html">FAQ</a>. Don't know what to build? Check out the <a href="ecosystem.html">Ecosystems</a>.</p>
 		<ul>
 			<li>If you want to connect your <font class="text-info">thing</font> to other things or applications, you should explore the "<a href="#SensorOwner">Sensor Owner</a>" and "<a href="#ActuatorOwner">Actuator Owner</a>" parts.</li>
 			<li>If you are developing IoT <font class="text-info">web or mobile applications</font>, you should look at the "<a href="#ApplicationDeveloper">Application Developer</a>" section.</li>
@@ -73,7 +73,7 @@
 					<li>Select the Entity to "Things".</li>
 					<li>Select the Action to "Full Create".</li>
 					<li>Copy the request to your device code (omit the "Tasking Capabilities" attribute since it is not relevant to a sensor).</li>
-					<li>After sending the request, extract the registered thing's location and thing's ID (surrounded by parentheses) from the response header (e. g., Location: http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things(13)).</li>
+					<li>After sending the request, extract the registered thing's location and thing's ID (surrounded by parentheses) from the response header (e. g., Location: http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(13)).</li>
 				</ol>
 				<div class="alert alert-info">You can also register things, locations, datastreams, observedProberties, Sensors, Observations, and FeaturesOfInterest separately. You only need to select "Simple Create" action for the thing registration and "Full Create" action for the rest.</div>
 			</section>
@@ -85,17 +85,17 @@
 					<li>Select the Entity to "Things".</li>
 					<li>Select the Action to "Full Create".</li>
 					<li>Copy the request to your device code (omit the "Datastreams" attribute since it is not relevant to an actuator).</li>
-					<li>After sending the request, extract the registered thing's location and thing's ID (surrounded by parentheses) from the response header (e. g., Location: http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things(13)).</li>
+					<li>After sending the request, extract the registered thing's location and thing's ID (surrounded by parentheses) from the response header (e. g., Location: http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(13)).</li>
 				</ol>
 				<div class="alert alert-info">You can also register things, taskingCapabilities, actuators, and tasks separately. You only need to select "Simple Create" action for the thing registration and "Full Create" action for the rest.</div>
 			</section>
 			<section id="ApplicationDeveloper">
 				<h2>Application Developer</h2>
-				<p>You want to get JSON-formatted data from the SWE IoT server. Thus, you only need to look at the SWE IoT Server <a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9">here</a>.</p>               	 
+				<p>You want to get JSON-formatted data from the SWE IoT server. Thus, you only need to look at the SWE IoT Server <a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0">here</a>.</p>               	 
 			</section>
 			<section id="EndUser">
 				<h2>End User</h2>
-				<p>You can simply explore the SWE IoT server containing some simulated data from <a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9">here</a>.</p>               	 
+				<p>You can simply explore the SWE IoT server containing some simulated data from <a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0">here</a>.</p>               	 
 			</section>
 		</div>
 
@@ -111,7 +111,7 @@
 							</div><!-- end of col-460 fit -->
 						</div>
 						<div class="row-fluid">
-							<div class="span5 copyright"> © 2013 | OGC IoT RESTful API </div> <!-- end copyright -->
+							<div class="span5 copyright"> &copy; 2013 | OGC SensorThings API </div> <!-- end copyright -->
 							<div class="span5 powered"></div><!-- end .powered -->
 						</div>
 					</div><!-- end of row -->
