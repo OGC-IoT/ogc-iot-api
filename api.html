@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>OGC IoT RESTful API</title>
+		<title>OGC SensorThings API</title>
 		<link rel="shortcut icon" href="http://sensorweb.geomatics.ucalgary.ca/gsw/sites/default/files/zeropoint_favicon_1.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
@@ -19,7 +19,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<a class="brand" href="index.html">OGC IoT RESTful API</a>
+					<a class="brand" href="index.html">OGC SensorThings API</a>
 					<div class="nav-collapse collapse" id="main-menu">
 						<ul class="nav pull-right" id="main-menu-right">
 							<li><a href="index.html">Home</a></li>
@@ -136,54 +136,54 @@
 			<div class="row">
 				<section id="Introduction">
 					<h2>1. Introduction</h2>
-					<p class="lead">The IoT RESTful API defines a RESTful web service interface, in which users can perform CREATE, READ, UPDATE, and DELETE (CRUD) actions to any uniquely-identifiable resources in the service.</p>
-					<p class="lead">The OGC IoT RESTful service interface is different from the other OGC web services, in that it is based on RESTful web service style and JSON encoding. The OGC IoT RESTful API is inspired by the OASIS Open Data Protocol (OData), which defines a general-purpose RESTful service interface. The IoT RESTful service interface is very similar to the OData but specifically designed for the IoT.</p>
-					<p class="lead">Besides the OData, the IoT RESTful service interface also leverages the existing and widely implemented OGC standards. For example, the capabilities part of the OGC IoT RESTful service interface adapts some elements from the GetCapabilities response defined in <a href="http://www.opengeospatial.org/standards/common">the OWS Common</a> by converting the XML encoding into the JSON encoding.</p>
-					<p class="lead">The OGC IoT RESTful API consists of two major profiles: the <i><a href="#DatastreamProfile">Sensing Profile</a></i> and the <i><a href="#TaskingCapabilityProfile">Tasking Profile</a></i>. The <a href="#DatastreamProfile">Sensing Profile</a> is designed based on <a href="http://www.opengeospatial.org/standards/sos">the OGC Sensor Observation Service (SOS) specification</a> in which defines an interoperable framework to manage and access sensors and observations. The <a href="#TaskingCapabilityProfile">Tasking Profile</a> is based on <a href="http://www.opengeospatial.org/standards/sps">the OGC Sensor Planning Service (SPS) specification</a>, in which defines an interoperable way to submit tasks to control sensors and actuators.</p>
+					<p class="lead">The SensorThings API defines a RESTful web service interface, in which users can perform CREATE, READ, UPDATE, and DELETE (CRUD) actions to any uniquely-identifiable resources in the service.</p>
+					<p class="lead">The OGC SensorThings service interface is different from the other OGC web services, in that it is based on RESTful web service style and JSON encoding. The OGC SensorThings API is inspired by the OASIS Open Data Protocol (OData), which defines a general-purpose RESTful service interface. The SensorThings service interface is very similar to the OData but specifically designed for the IoT.</p>
+					<p class="lead">Besides the OData, the SensorThings service interface also leverages the existing and widely implemented OGC standards. For example, the capabilities part of the OGC SensorThings service interface adapts some elements from the GetCapabilities response defined in <a href="http://www.opengeospatial.org/standards/common">the OWS Common</a> by converting the XML encoding into the JSON encoding.</p>
+					<p class="lead">The OGC SensorThings API consists of two major profiles: the <i><a href="#DatastreamProfile">Sensing Profile</a></i> and the <i><a href="#TaskingCapabilityProfile">Tasking Profile</a></i>. The <a href="#DatastreamProfile">Sensing Profile</a> is designed based on <a href="http://www.opengeospatial.org/standards/sos">the OGC Sensor Observation Service (SOS) specification</a> in which defines an interoperable framework to manage and access sensors and observations. The <a href="#TaskingCapabilityProfile">Tasking Profile</a> is based on <a href="http://www.opengeospatial.org/standards/sps">the OGC Sensor Planning Service (SPS) specification</a>, in which defines an interoperable way to submit tasks to control sensors and actuators.</p>
 					<p class="lead">In the following subsections, we first describe the <a href="#URIComponents">URI Components</a> for addressing resources and possible query options. Then we define the protocol of retrieving the <a href="#capabilities">capabilities</a> document. Finally, we explain the CRUD requests and responses in the <a href="#SensingProfile">Sensing Profile</a> and <a href="#TaskingProfile">Tasking Profile</a>.</p>
-					<p class="lead">In this API reference page, we mainly focus on describing the behaviour of the OGC IoT RESTful API without presenting detailed examples. Instead, the complete data model and JSON examples of resources can be found in the <a id="swatch-link" href="datamodel.html">Data Model</a> page.</p>
+					<p class="lead">In this API reference page, we mainly focus on describing the behaviour of the OGC SensorThings API without presenting detailed examples. Instead, the complete data model and JSON examples of resources can be found in the <a id="swatch-link" href="datamodel.html">Data Model</a> page.</p>
 				</section>
 				<section id="URIComponents">
 					<h2>2. URI Components</h2>
-					<p class="lead">Similar to the OASIS OData, the OGC IoT RESTful API groups the same types of entities into collections. Each entity has a unique identifier and one to many properties. Also, in the case of an entity holding a relationship with entities in another collection, this entity has a navigation property (<em>i.e.</em>, a link) linking to other entities. The complete data model and JSON examples of resources can be found in the <a id="swatch-link" href="datamodel.html">Data Model</a> page.</p>
-					<p class="lead">Therefore, in order to perform <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> actions on the resources, the first step is to address to the target resource(s) through URI. There are three major URI components used in this API: the <i>service root URI</i>, the <i><a href="#ResourcePath">Resource Path</a></i>, and the <i><a href="#QueryOptions">Query Options</a></i>. The service root URI is the location of the IoT RESTful service. By attaching the resource path after the service root URI, users can address to different kinds of resources such as <i>a collection</i>, <i>an entity</i>, <i>a property</i>, or <i>a navigation property</i>. Finally, when users perform the READ (<em>i.e.</em>, HTTP GET) action on resource(s), users can apply query options to further process the addressed resources, such as sorting by properties and filtering with criteria.</p>
+					<p class="lead">Similar to the OASIS OData, the OGC SensorThings API groups the same types of entities into collections. Each entity has a unique identifier and one to many properties. Also, in the case of an entity holding a relationship with entities in another collection, this entity has a navigation property (<em>i.e.</em>, a link) linking to other entities. The complete data model and JSON examples of resources can be found in the <a id="swatch-link" href="datamodel.html">Data Model</a> page.</p>
+					<p class="lead">Therefore, in order to perform <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> actions on the resources, the first step is to address to the target resource(s) through URI. There are three major URI components used in this API: the <i>service root URI</i>, the <i><a href="#ResourcePath">Resource Path</a></i>, and the <i><a href="#QueryOptions">Query Options</a></i>. The service root URI is the location of the SensorThings service. By attaching the resource path after the service root URI, users can address to different kinds of resources such as <i>a collection</i>, <i>an entity</i>, <i>a property</i>, or <i>a navigation property</i>. Finally, when users perform the READ (<em>i.e.</em>, HTTP GET) action on resource(s), users can apply query options to further process the addressed resources, such as sorting by properties and filtering with criteria.</p>
 					<section id="ResourcePath">
 						<h3>2.1 Resource Path</h3>
 						<p class="lead">The resource path comes right after the service root URI and can be used to address to different resources. The following lists the general usages of the resource path.</p>
 						<p><em>Usage 1: No resource path</em></p>
-						<p class="tab">If a user request does not include any resource path, the IoT RESTful service returns a list of collection names as the service document.</p>
+						<p class="tab">If a user request does not include any resource path, the SensorThings service returns a list of collection names as the service document.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI</var></p>
 						<p class="tab"><strong>Response: </strong>A list of collection names.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/">http://demo.student.geocens.ca:8080/SWIOT_V0.9/</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/">http://demo.student.geocens.ca:8080/SWIOT_V1.0/</a></p>
 						<p><em>Usage 2: Address to an entity collection</em></p>
 						<p class="tab">To address to an entity collection, users can simply put the collection name after the service root URI. The service returns a list of all the entities in the specified collection.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME</var></p>
 						<p class="tab"><strong>Response: </strong>A list of all entities (with all the properties) in the specified collection (if no service-driven pagination imposed).</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things</a></p>
 						<p><em>Usage 3: Address to an entity in a collection</em></p>
-						<p class="tab">Users can address to a specific entity in a collection by place the unique identifier of the entity between brace symbol “()” and put after the collection name. The service then returns the entity with all its properties.</p>
+						<p class="tab">Users can address to a specific entity in a collection by place the unique identifier of the entity between brace symbol "()" and put after the collection name. The service then returns the entity with all its properties.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME(KEY_OF_ENTITY)</var></p>
 						<p class="tab"><strong>Response: </strong>An entity (with all its properties) that holds the specified key in the collection.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things(1)">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things(1)</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)</a></p>
 						<p><em>Usage 4: Address to a property of an entity</em></p>
 						<p class="tab">Users can address to a property of an entity by specifying the property name after the URI addressing to the entity. The service then returns the value of the specified property.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME(KEY_OF_ENTITY)/PROPERTY_NAME</var></p>
 						<p class="tab"><strong>Response: </strong>The specified property of an entity that holds the key in the collection.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Observations(1)/Time">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Observations(1)/Time</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Observations(1)/Time">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Observations(1)/Time</a></p>
 						<p><em>Usage 5: Address to a navigation property (link)</em></p>
 						<p class="tab">As the entities in different collections may hold some relationships, users can request the linked entities by addressing to a navigation property of an entity. The service then returns one or many entities that hold a certain relationship with the specified entity.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME(KEY_OF_ENTITY)/LINK_NAME</var></p>
 						<p class="tab"><strong>Response: </strong>One or many entities that holds a certain relationship with the specified entity.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations</a> returns all the observations in the datastream.</p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations</a> returns all the observations in the datastream.</p>
 						<p><em>Usage 6: Nested resource path</em></p>
 						<p class="tab">As users can use navigation properties to link from one collection to another, users can further extend the resource path with unique identifiers, properties, or links (i.e., Usage 3 to 5).</p>
-						<p class="tab"><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations(1)">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations(1)</a> returns a specific observation in the datastream.</p>
-						<p class="tab"><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations(1)/Time">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations(1)/Time</a> turns the “Time” property of the specified observation in the datastream.</p>
-						<p class="tab"><strong>Example 3: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations(1)/FeatureOfInterest">http://demo.student.geocens.ca:8080/SWIOT_V0.9/Datastreams(1)/Observations(1)/FeatureOfInterest</a> returns the feature of interest entity of the specified observation in the datastream.</p>
+						<p class="tab"><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)</a> returns a specific observation in the datastream.</p>
+						<p class="tab"><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/Time">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/Time</a> turns the "Time" property of the specified observation in the datastream.</p>
+						<p class="tab"><strong>Example 3: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/FeatureOfInterest">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/FeatureOfInterest</a> returns the feature of interest entity of the specified observation in the datastream.</p>
 					</section>
 					<section id="QueryOptions">
 						<h3>2.2 Query Options</h3>
-						<p class="lead">When users perform the READ action on resource(s), users can apply query options to further process the addressed resources. As the read action is performed through HTTP GET method, the query options are specified as key-value pairs after the question symbol "?" in the request URI. Currently, many of the query options defined in the OGC IoT RESTful API are similar to the query options in the OData. Therefore, some of the following explanations can be referenced to the OData specification.</p>
+						<p class="lead">When users perform the READ action on resource(s), users can apply query options to further process the addressed resources. As the read action is performed through HTTP GET method, the query options are specified as key-value pairs after the question symbol "?" in the request URI. Currently, many of the query options defined in the OGC SensorThings API are similar to the query options in the OData. Therefore, some of the following explanations can be referenced to the OData specification.</p>
 
 						<p class="alert alert-error">NOTE: As our reference implementation hasn't supported all the functions proposed here, we use some examples from the OData test service (http://services.odata.org) to illustrate these functions. As OData might change their demo service, you might find some of the following OData examples not working. And some of the functions, there are no examples available, and these examples uses a pseudo-service root URL (e.g., http://example.com/)</p>
 
@@ -217,16 +217,16 @@
 					<section id="filter_query">
 						<h4>2.2.4 $filter</h4>
 						<p>A URI with a $filter query option identifies a subset of the entries from the collection of entries identified by the resource path of the URI. The subset is determined by selecting only the entries that satisfy the predicate expression specified by the $filter. The value of the $filter option is a Boolean expression.</p>
-						<p>The expression language that is used in $filter operators supports references to properties and literals. The literal values can be strings enclosed in single quotes, numbers and boolean values (true or false) or datetime values represented as datetime‘ISO 8601 time string’.</p>
+						<p>The expression language that is used in $filter operators supports references to properties and literals. The literal values can be strings enclosed in single quotes, numbers and boolean values (true or false) or datetime values represented as datetime'ISO 8601 time string'.</p>
 						<p><strong>Example: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$filter=Price lt 10.00">http://services.odata.org/V3/OData/OData.svc/Products?$filter=Price lt 10.00</a> returns all Products whose Price is less than 10.00.</p>
-						<p>In addition, users may use the properties of linked entities in the $filter predicate. The following are examples of the possible uses of the $filter in the data model of the IoT RESTful service.</p>
-						<p><strong>Example 1: </strong><a href="http://example.com/Observations?$filter=ObservedProperty/UnitOfMeasurement eq ‘Celsius’">ttp://iot-rest.example.com/Observations?$filter=ObservedProperty/UnitOfMeasurement eq ‘Celsius’</a> returns all Observations whose UnitOfMeasurement (a property of ObservedProperty) is ‘Celsius’.</p>
+						<p>In addition, users may use the properties of linked entities in the $filter predicate. The following are examples of the possible uses of the $filter in the data model of the SensorThings service.</p>
+						<p><strong>Example 1: </strong><a href="http://example.com/Observations?$filter=ObservedProperty/UnitOfMeasurement eq 'Celsius'">ttp://iot-rest.example.com/Observations?$filter=ObservedProperty/UnitOfMeasurement eq 'Celsius'</a> returns all Observations whose UnitOfMeasurement (a property of ObservedProperty) is 'Celsius'.</p>
 						<p><strong>Example 2: </strong><a href="http://example.com/Things?$filter=Locations/Geometry st_within(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)))">http://iot-rest.example.com/Things?$filter=Locations/Geometry st_within(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)))</a> returns Things whose current or past locations were in the polygon defined in the Well-Known Text (WKT).</p>
-						<p><strong>Example 3: </strong><a href="http://example.com/ Things?$filter=Sensors/Observations/FeatureOfInterest/ID eq ‘FOI_1’ and Sensors/Observations/Time ge datetime‘2010-06-01T00:00:00Z’ and Sensors/Observations/Time le datetime‘2010-07-01T00:00:00Z’">http://iot-rest.example.com/ Things?$filter=Sensors/Observations/FeatureOfInterest/ID eq ‘FOI_1’ and Sensors/Observations/Time ge datetime‘2010-06-01T00:00:00Z’ and Sensors/Observations/Time le datetime‘2010-07-01T00:00:00Z’</a> returns Things that made any observations on a feature of interest with a unique identifier equals to “FOI_1” in June 2010.</p>
+						<p><strong>Example 3: </strong><a href="http://example.com/ Things?$filter=Sensors/Observations/FeatureOfInterest/ID eq 'FOI_1' and Sensors/Observations/Time ge datetime'2010-06-01T00:00:00Z' and Sensors/Observations/Time le datetime'2010-07-01T00:00:00Z'">http://iot-rest.example.com/ Things?$filter=Sensors/Observations/FeatureOfInterest/ID eq 'FOI_1' and Sensors/Observations/Time ge datetime'2010-06-01T00:00:00Z' and Sensors/Observations/Time le datetime'2010-07-01T00:00:00Z'</a> returns Things that made any observations on a feature of interest with a unique identifier equals to 'FOI_1' in June 2010.</p>
 					</section>
 					<section id="filterOperations">
 						<h5>2.2.4.1 Built-in filter operations</h5>
-						<p>The OGC IoT RESTful API supports a set of built-in filter operations, as described in the following table.</p>
+						<p>The OGC SensorThings API supports a set of built-in filter operations, as described in the following table.</p>
 						<br/>
 <table class="table table-striped">
 <thead>
@@ -325,7 +325,7 @@
 					</section>
 					<section id="queryFunctions">
 						<h5>2.2.4.2 Built-in query functions</h5>
-						<p>IoT RESTful API supports a set of built-in functions that can be used within $filter operations. The following table lists the available functions. Most of these query functions are defined in the OData. However, in order to support more geospatial query functions, IoT RESTful API defines nine additional geospatial functions based on the spatial relationship between two geometry objects defined in the OGC Simple Feature Access specification (part 1, clause 6.1.2.3). The names of these nine functions start with a prefix “st_” as they are named in the OGC Simple Feature Access specification. In addition, for these eight functions, we define that users must specify input geometry in the Well-Known Text (WKT) format.</p>
+						<p>SensorThings API supports a set of built-in functions that can be used within $filter operations. The following table lists the available functions. Most of these query functions are defined in the OData. However, in order to support more geospatial query functions, SensorThings API defines nine additional geospatial functions based on the spatial relationship between two geometry objects defined in the OGC Simple Feature Access specification (part 1, clause 6.1.2.3). The names of these nine functions start with a prefix "st_" as they are named in the OGC Simple Feature Access specification. In addition, for these eight functions, we define that users must specify input geometry in the Well-Known Text (WKT) format.</p>
 						<br/>
 <table class="table table-striped">
 <thead>
@@ -519,7 +519,7 @@
 							</tr>
 							<tr>
 								<td>bool st_relate</td>
-								<td>st_relate(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)), ‘T********’)</td>
+								<td>st_relate(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)), 'T********')</td>
 							</tr>
 						</table>
 						<br/>
@@ -534,14 +534,14 @@
 					</section>
 					<section id="select_query">
 						<h4>2.2.6 $select</h4>
-						<p>A data service URI with a $select query option identifies the same set of entries as a URI without a $select query option; however, the value of $select specifies that a response from an IoT RESTful service should return a subset of the properties. The value of a $select query option is a comma-separated list of selection clauses. Each selection clause may be a property name (including navigation property names).</p>
+						<p>A data service URI with a $select query option identifies the same set of entries as a URI without a $select query option; however, the value of $select specifies that a response from an SensorThings service should return a subset of the properties. The value of a $select query option is a comma-separated list of selection clauses. Each selection clause may be a property name (including navigation property names).</p>
 						<p><strong>Example 1: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$select=Price,Name">http://services.odata.org/V3/OData/OData.svc/Products?$select=Price,Name</a> returns only the Price and Name properties for each Product entity.</p>
 						<p><strong>Example 2: </strong><a href="http://service.odata.org/Categories?$select=Name,Products&$expand=Products/Supplier">http://service.odata.org/Categories?$select=Name,Products&$expand=Products/Supplier</a> returns the Name properties of the Category entries, and all the properties of the entries identified by the Products and Suppliers navigation properties.</p>
 					</section>
 					<section id="count_query">
 						<h4>2.2.7 $count</h4>
-						<p>The $count query option with a value of “true” specifies that the total count of entities within a collection matching the request must be returned along with the result. The $count system query option ignores any $top, $skip, or $expand query options, and returns the total count of results across all pages including only those results matching any specified $filter.</p>
-						<p>A $count with a value of “false” (or not specified) hints that the service should not return a count.</p>
+						<p>The $count query option with a value of "true" specifies that the total count of entities within a collection matching the request must be returned along with the result. The $count system query option ignores any $top, $skip, or $expand query options, and returns the total count of results across all pages including only those results matching any specified $filter.</p>
+						<p>A $count with a value of "false" (or not specified) hints that the service should not return a count.</p>
 						<p><strong>Example: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$count=true">http://services.odata.org/V3/OData/OData.svc/Products?$count=true</a> returns, along with the results, the total number of products in the set.</p>
 					</section>
 				</section>
@@ -552,7 +552,7 @@
 						<h3>3.1 $capabilities Request</h3>
 						<p><strong>HTTP Method: </strong>GET</p>
 						<p><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/$capabilities</var></p>
-						<p><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V0.9/$capabilities">http://demo.student.geocens.ca:8080/SWIOT_V0.9/$capabilities</a></p>
+						<p><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/$capabilities">http://demo.student.geocens.ca:8080/SWIOT_V1.0/$capabilities</a></p>
 					</section>
 					<section id="response_capabilities">
 						<h3>3.2 $capabilities Response</h3>
@@ -562,8 +562,8 @@
 				</section>
 				<section id="DatastreamProfile">
 					<h2>4. Sensing Profile</h2>
-					<p class="lead">The OGC IoT RESTful API sensing profile is based on the <a href="http://www.opengeospatial.org/standards/sos">OGC SOS </a>concept and designed specifically for the Internet of Things.</p>
-					<p class="lead">As most IoT devices are resource-constrained, the IoT RESTful API adopts the efficient RESTful web service style. That means the CRUD actions can be performed on <a href="datamodel.html#Thing">Thing</a>, <a href="datamodel.html#Location">Location</a>, <a href="datamodel.html#Datastream">Datastream</a>, <a href="datamodel.html#Sensor">Sensor</a>, <a href="datamodel.html#Observation">Observation</a>, <a href="datamodel.html#FeatureOfInterest">FeatureOfInterest</a>, and <a href="datamodel.html#ObservedProperty">ObservedProperty</a> entity types. The following subsection explains the CRUD protocol for the Sensing Profile.</p>
+					<p class="lead">The OGC SensorThings API sensing profile is based on the <a href="http://www.opengeospatial.org/standards/sos">OGC SOS </a>concept and designed specifically for the Internet of Things.</p>
+					<p class="lead">As most IoT devices are resource-constrained, the SensorThings API adopts the efficient RESTful web service style. That means the CRUD actions can be performed on <a href="datamodel.html#Thing">Thing</a>, <a href="datamodel.html#Location">Location</a>, <a href="datamodel.html#Datastream">Datastream</a>, <a href="datamodel.html#Sensor">Sensor</a>, <a href="datamodel.html#Observation">Observation</a>, <a href="datamodel.html#FeatureOfInterest">FeatureOfInterest</a>, and <a href="datamodel.html#ObservedProperty">ObservedProperty</a> entity types. The following subsection explains the CRUD protocol for the Sensing Profile.</p>
 				</section>
 				<section id="Resources_DatastreamProfile">
 					<h3>4.1 Resources in the Sensing Profile</h3>
@@ -572,7 +572,7 @@
 				<section id="Create_DatastreamProfile">
 					<h3>4.2 Create a Resource in Datastream Profile</h3>
 					<p class="lead">To create an entity in a collection, the client sends a HTTP POST request to that collection's URL. The POST body must contain a single valid entity representation. In addition, the link between entities should be established upon creating an entity. Two use cases should be considered: (1) link to existing entities when creating an entity, and (2) create related entities when creating an entity. The requests for these two use cases are also described in the following subsection.</p>
-					<p>When users create resources in an IoT RESTful service, they need to follow some integrity constraints. For example, a Datastream entity must link to a Thing entity. So when a user wants to create a Datastream entity, he/she needs to either (1) create a linked Thing entity in the same request or (2) link to a already created Thing entity. The complete integrity constraints for creating resources are shown in the following table.</p>
+					<p>When users create resources in an SensorThings service, they need to follow some integrity constraints. For example, a Datastream entity must link to a Thing entity. So when a user wants to create a Datastream entity, he/she needs to either (1) create a linked Thing entity in the same request or (2) link to a already created Thing entity. The complete integrity constraints for creating resources are shown in the following table.</p>
 					<p>One special case is on creating an Observation entity that links to an FeatureOfInterest entity. Sometimes the FeatureOfInterest of an Observation is the Thing itself where the Observation is similar to an attribute of the Thing. In this cases, when a user creates an Observation entity, he/she can omit the link to a FeatureOfInterest entity in the POST body message. And if the service detects that there is no link to a FeatureOfInterst entity in a create-Observation entity request, the service must automatically create a FeatureOfInterest entity by interpolating the geometry property from the locations of the Thing entity.</p>
 					<br/>
 <table class="table table-striped">
@@ -764,10 +764,10 @@
 					<section id="Request_Update_DatastreamProfile">
 						<h4>4.4.1 Request</h3>
 						<p>Services should support HTTP PATCH as the preferred means of updating an entity. HTTP PATCH provides more resiliencies between clients and services by directly modifying only those values specified by the client.</p>
-						<p>The semantics of PATCH, as defined in [RFC5789], are to merge the content in the request payload with the entity’s current state, applying the update only to those components specified in the request body. Collection properties and primitive properties provided in the payload must replace the value of the corresponding property in the entity or complex type. Missing properties of the containing entity or complex property, including dynamic properties, must not be directly altered.</p>
+						<p>The semantics of PATCH, as defined in [RFC5789], are to merge the content in the request payload with the entity's current state, applying the update only to those components specified in the request body. Collection properties and primitive properties provided in the payload must replace the value of the corresponding property in the entity or complex type. Missing properties of the containing entity or complex property, including dynamic properties, must not be directly altered.</p>
 						<p>Services may additionally support HTTP PUT, but should be aware of the potential for data-loss in round-tripping properties that the client may not know about in advance. Services that support HTTP PUT must replace all property values with those specified in the request body. Missing properties must be set to their default values. Missing optional properties must be removed.</p>
 						<p>Unique identifiers and other non-updatable properties may be omitted from the request. If the request contains a value for an identifier or other non-updatable property, the service must ignore that value when applying the update.</p>
-						<p>The entity must not contain related entities as inline content. Additional values for properties beyond those specified in the IoT RESTful data model should not be sent in the request body. The service should consider such a request malformed.</p>
+						<p>The entity must not contain related entities as inline content. Additional values for properties beyond those specified in the SensorThings data model should not be sent in the request body. The service should consider such a request malformed.</p>
 						<p><strong>HTTP Method: </strong>PATCH or PUT</p>
 						<p><strong>URI Pattern: </strong>An URI addressing to a single entity.</p>
 						<p><strong>Header: </strong>Content-Type: application/json</p>
@@ -796,7 +796,7 @@
 						<p><strong>HTTP Method: </strong>DELETE</p>
 						<p><strong>URI Pattern: </strong>An URI addressing to a single entity.</p>
 						<p><strong>Example: </strong>Delete the Thing with unique identifier equals to 1</p>
-						<pre><strong>HTTP DELETE http://demo.student.geocens.ca:8080/SWIOT_V0.9/Things(1)</strong></pre>
+						<pre><strong>HTTP DELETE http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)</strong></pre>
 						<p>Services must implicitly remove relations to and from an entity when deleting it; clients need not delete the relations explicitly.</p>
 						<p>Services should implicitly delete related entities if required by the following integrity constraints.</p>
 						<br/>
@@ -871,9 +871,9 @@
 				</section>
 				<section id="TaskingCapabilityProfile">
 					<h2>5. TaskingCapability Profile</h2>
-					<p>The IoT RESTful TaskingCapability profile is mainly for users to control actuators through a unified web service interface. There are two major parts in the TaskingCapability profile. The first part is to convey the acceptable parameters of an actuator and allow users to submit controlling tasks through a RESTful interface. The second part in the TaskingCapability profile is to allow IoT RESTful services to communicate with actuators that are attached to things. Therefore, the following two functionalities should be supported: (1) data producers describing and registering the protocol to communicate with the device; and (2) IoT RESTful services creating requests and understanding response with the registered device protocol.</p>
-					<p>The potential workflow would be (1) a thing (a data producer) creates itself and an actuator attached to it in an IoT RESTful service, (2) a user retrieves the capabilities document from the IoT RESTful service, (3) the user retrieves the actuator resource and understands the acceptable parameters of the actuator, (4) with the parameter information, the user creates a task entity (like creating other resources in the IoT RESTful servie) with specified input values for parameters and the time that the user wants this task to be executed, (5) after the user creates the task in the IoT RESTful service, the IoT RESTful service creates a request in the device protocol based on user’s input value and sends the request to the thing at the user-specified time, (6) the thing then executes the request and returns a response to the IoT RESTful service in the device protocol, and finally, (7) the IoT RESTful service parses the response and updates the status property in the user-created task entity.</p>
-					<p>To sum up, the concept of the IoT RESTful TaskingCapability profile is to provide a RESTful interface for users to submit tasks to control actuators. As IoT RESTful services handle the communication in device protocols, users can easily control Internet of Things with a simple and unified RESTful interface.</p>
+					<p>The SensorThings TaskingCapability profile is mainly for users to control actuators through a unified web service interface. There are two major parts in the TaskingCapability profile. The first part is to convey the acceptable parameters of an actuator and allow users to submit controlling tasks through a RESTful interface. The second part in the TaskingCapability profile is to allow SensorThings services to communicate with actuators that are attached to things. Therefore, the following two functionalities should be supported: (1) data producers describing and registering the protocol to communicate with the device; and (2) SensorThings services creating requests and understanding response with the registered device protocol.</p>
+					<p>The potential workflow would be (1) a thing (a data producer) creates itself and an actuator attached to it in an SensorThings service, (2) a user retrieves the capabilities document from the SensorThings service, (3) the user retrieves the actuator resource and understands the acceptable parameters of the actuator, (4) with the parameter information, the user creates a task entity (like creating other resources in the SensorThings servie) with specified input values for parameters and the time that the user wants this task to be executed, (5) after the user creates the task in the SensorThings service, the SensorThings service creates a request in the device protocol based on user's input value and sends the request to the thing at the user-specified time, (6) the thing then executes the request and returns a response to the SensorThings service in the device protocol, and finally, (7) the SensorThings service parses the response and updates the status property in the user-created task entity.</p>
+					<p>To sum up, the concept of the SensorThings TaskingCapability profile is to provide a RESTful interface for users to submit tasks to control actuators. As SensorThings services handle the communication in device protocols, users can easily control Internet of Things with a simple and unified RESTful interface.</p>
 				</section>
 				<section id="Resources_TaskingCapabilityProfile">
 					<h3>5.1 Resources in Actuator Profile</h3>
@@ -913,7 +913,7 @@
     "Metadata":"This is an actuator"
   }
 }</code></pre>
-					<p>In addition, the behavior of creating a task entity is the same as submitting a tasking job to the thing. The IoT RESTful service will compose a request in the device protocol (from the protocol property in the TaskingCapability entity), and send the request at the specified time point. While composing a request in a device protocol, the values of inputs in the task entity will be used to replace the "{ParameterID}" in the device protocol. For instance, the following example requires an IoT RESTful service to replace "{paramOn}" string in the device protocol with the input value 200. Therefore, with the above taskingCapability entity, the IoT RESTful service will send a HTTP POST reqeust to http://path.com with a messageBody as "lamp-id=1&on=200" at 2013-04-18T16:15:00-0700.</p>
+					<p>In addition, the behavior of creating a task entity is the same as submitting a tasking job to the thing. The SensorThings service will compose a request in the device protocol (from the protocol property in the TaskingCapability entity), and send the request at the specified time point. While composing a request in a device protocol, the values of inputs in the task entity will be used to replace the "{ParameterID}" in the device protocol. For instance, the following example requires an SensorThings service to replace "{paramOn}" string in the device protocol with the input value 200. Therefore, with the above taskingCapability entity, the SensorThings service will send a HTTP POST reqeust to http://path.com with a messageBody as "lamp-id=1&on=200" at 2013-04-18T16:15:00-0700.</p>
 					<p>When creating a task entity, if the value of <var>Time</var> property is in the past, the task should be sent to the thing immediately.</p>
 					<p><strong>Example: </strong>Create a Task entity</p>
 <pre><strong>POST /SWIOT_V0.9/Tasks HTTP/1.1</strong>
@@ -939,7 +939,7 @@
 				</section>
 				<section id="Update_TaskingCapabilityProfile">
 					<h3>5.4 Update a Resource in Actuator Profile</h3>
-					<p>The protocol of updating a resource in the TaskingCapability profile is the same as that in the Datastream profile (<a href="api.html#Update_DatastreamProfile">api.html#Update_DatastreamProfile</a>). Only the <var>Status</var> property in a Task entity is a service-controlled property and cannot be updated by users. IoT RESTful service updates the status based on responses from the thing.</p>
+					<p>The protocol of updating a resource in the TaskingCapability profile is the same as that in the Datastream profile (<a href="api.html#Update_DatastreamProfile">api.html#Update_DatastreamProfile</a>). Only the <var>Status</var> property in a Task entity is a service-controlled property and cannot be updated by users. SensorThings service updates the status based on responses from the thing.</p>
 					<p>Upon successful completion, the service service must respond with 200 OK or 204 No Content. Regarding all the HTTP status code, please refer to the <a href="#StatusCode">HTTP Status Code</a> section.</p>
 				</section>
 				<section id="Delete_TaskingCapabilityProfile">
@@ -949,7 +949,7 @@
 				</section>
 				<section id="BatchProcessing">
 					<h2>6. Batch Processing</h2>
-					<p>The IoT RESTful service interface provides interfaces for users to perform CRUD actions on resources through different HTTP methods. However, as IoT devices are usually resource-constrained, handling a large number of communications may be not practical. This section describes how an IoT RESTful service can optionally support executing multiple operations sent in a single HTTP request through the use of batch processing. This section covers both how batch operations are represented and processed.</p>
+					<p>The SensorThings service interface provides interfaces for users to perform CRUD actions on resources through different HTTP methods. However, as IoT devices are usually resource-constrained, handling a large number of communications may be not practical. This section describes how an SensorThings service can optionally support executing multiple operations sent in a single HTTP request through the use of batch processing. This section covers both how batch operations are represented and processed.</p>
 					<section id="Request_BatchProcessing">
 						<h3>6.1 Request</h3>
 						<p>A batch request is represented as a Multipart MIME v1.0 message [RFC2046], a standard format allowing the representation of multiple parts, each of which may have a different content type, within a single request.</p>
@@ -1116,7 +1116,7 @@ Content-Length: ###
 				</section>
 				<section id="StatusCode">
 					<h2>7. HTTP Status Code</h2>
-					<p>All status codes used in the IoT RESTful API follow the <a target="_blank" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">standard HTTP status codes</a>. A high-level explanation of the status codes is as follows:</p>
+					<p>All status codes used in the SensorThings API follow the <a target="_blank" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">standard HTTP status codes</a>. A high-level explanation of the status codes is as follows:</p>
 					<br/>
 <table class="table table-striped">
 <thead>
@@ -1158,7 +1158,7 @@ Content-Length: ###
 								</div><!-- end of col-460 fit -->
 							</div>
 							<div class="row-fluid">
-								<div class="span5 copyright"> © 2013 | OGC IoT RESTful API </div> <!-- end copyright -->
+								<div class="span5 copyright"> &copy; 2013 | OGC SensorThings API </div> <!-- end copyright -->
 								<div class="span5 powered"></div><!-- end .powered -->
 							</div>
 						</div><!-- end of row -->
