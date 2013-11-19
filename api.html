@@ -154,32 +154,32 @@
 						<p class="tab">If a user request does not include any resource path, the SensorThings service returns a list of collection names as the service document.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI</var></p>
 						<p class="tab"><strong>Response: </strong>A list of collection names.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/">http://demo.student.geocens.ca:8080/SWIOT_V1.0/</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/">http://demo.student.geocens.ca:8080/SensorThings_V1.0/</a></p>
 						<p><em>Usage 2: Address to an entity collection</em></p>
 						<p class="tab">To address to an entity collection, users can simply put the collection name after the service root URI. The service returns a list of all the entities in the specified collection.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME</var></p>
 						<p class="tab"><strong>Response: </strong>A list of all entities (with all the properties) in the specified collection (if no service-driven pagination imposed).</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things</a></p>
 						<p><em>Usage 3: Address to an entity in a collection</em></p>
 						<p class="tab">Users can address to a specific entity in a collection by place the unique identifier of the entity between brace symbol "()" and put after the collection name. The service then returns the entity with all its properties.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME(KEY_OF_ENTITY)</var></p>
 						<p class="tab"><strong>Response: </strong>An entity (with all its properties) that holds the specified key in the collection.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(1)">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(1)</a></p>
 						<p><em>Usage 4: Address to a property of an entity</em></p>
 						<p class="tab">Users can address to a property of an entity by specifying the property name after the URI addressing to the entity. The service then returns the value of the specified property.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME(KEY_OF_ENTITY)/PROPERTY_NAME</var></p>
 						<p class="tab"><strong>Response: </strong>The specified property of an entity that holds the key in the collection.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Observations(1)/Time">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Observations(1)/Time</a></p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations(1)/Time">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations(1)/Time</a></p>
 						<p><em>Usage 5: Address to a navigation property (link)</em></p>
 						<p class="tab">As the entities in different collections may hold some relationships, users can request the linked entities by addressing to a navigation property of an entity. The service then returns one or many entities that hold a certain relationship with the specified entity.</p>
 						<p class="tab"><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/COLLECTION_NAME(KEY_OF_ENTITY)/LINK_NAME</var></p>
 						<p class="tab"><strong>Response: </strong>One or many entities that holds a certain relationship with the specified entity.</p>
-						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations</a> returns all the observations in the datastream.</p>
+						<p class="tab"><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations</a> returns all the observations in the datastream.</p>
 						<p><em>Usage 6: Nested resource path</em></p>
 						<p class="tab">As users can use navigation properties to link from one collection to another, users can further extend the resource path with unique identifiers, properties, or links (i.e., Usage 3 to 5).</p>
-						<p class="tab"><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)</a> returns a specific observation in the datastream.</p>
-						<p class="tab"><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/Time">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/Time</a> turns the "Time" property of the specified observation in the datastream.</p>
-						<p class="tab"><strong>Example 3: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/FeatureOfInterest">http://demo.student.geocens.ca:8080/SWIOT_V1.0/Datastreams(1)/Observations(1)/FeatureOfInterest</a> returns the feature of interest entity of the specified observation in the datastream.</p>
+						<p class="tab"><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations(1)">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations(1)</a> returns a specific observation in the datastream.</p>
+						<p class="tab"><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations(1)/Time">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations(1)/Time</a> turns the "Time" property of the specified observation in the datastream.</p>
+						<p class="tab"><strong>Example 3: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations(1)/FeatureOfInterest">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)/Observations(1)/FeatureOfInterest</a> returns the feature of interest entity of the specified observation in the datastream.</p>
 					</section>
 					<section id="QueryOptions">
 						<h3>2.2 Query Options</h3>
@@ -552,7 +552,7 @@
 						<h3>3.1 $capabilities Request</h3>
 						<p><strong>HTTP Method: </strong>GET</p>
 						<p><strong>URI Pattern: </strong><var>SERVICE_ROOT_URI/$capabilities</var></p>
-						<p><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SWIOT_V1.0/$capabilities">http://demo.student.geocens.ca:8080/SWIOT_V1.0/$capabilities</a></p>
+						<p><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/$capabilities">http://demo.student.geocens.ca:8080/SensorThings_V1.0/$capabilities</a></p>
 					</section>
 					<section id="response_capabilities">
 						<h3>3.2 $capabilities Response</h3>
@@ -639,7 +639,7 @@
 						<p><strong>Header: </strong>Content-Type: application/json</p>
 						<p><strong>Message Body: </strong>A single valid entity representation for the specified collection.</p>
 						<p><strong>Example: </strong>Create a Thing entity</p>
-<pre><strong>POST /SWIOT_V0.9/Things HTTP/1.1</strong>
+<pre><strong>POST /SensorThings_V1.0/Things HTTP/1.1</strong>
 <strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>application/json
 <code>
@@ -651,7 +651,7 @@
 							<p>A service should support linking new entities to existing entities upon creation. To create a new entity with links to existing entities in a single request, the client needs to include the unique identifiers of the related entities associated with the corresponding navigation properties in the request body.</p>
 							<p>Note: In the case of creating an observation that measures on the thing itself (i.e., the observation can be interpreted as an attribute of the thing), the request of creating the observation must not include a link to a feature of interest entity. The service will first automatically create a feature of interest entity from the thing and the locations of the thing and then link to the observation.</p>
 							<p><strong>Example: </strong>Create an Observation entity, which links to an existing Sensor entity (whose ID is 1), an existing FeatureOfInterest entity (whose ID is 2), and an existing ObservedProperty entity (whose ID is 3).</p>
-<pre><strong>POST /SWIOT_V0.9/Observations HTTP/1.1</strong>
+<pre><strong>POST /SensorThings_V1.0/Observations HTTP/1.1</strong>
 <strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>application/json
 <code>
@@ -669,7 +669,7 @@
 							<p>Properties computed by the service, such as unique identifiers of entities, may be omitted from the request. If the inline representation contains a value for a computed or dependent property, the service MUST ignore that value when creating the related entity.</p>
 							<p>On success, the service must create each entity and relate them. On failure, the service must not create any of the entities.</p>
 							<p><strong>Example: </strong>Create a Thing while creating two related Sensors and one related Observation (which links to an existing FeatureOfInterest entity and an existing ObservedProperty entity).</p>
-<pre><strong>POST /SWIOT_V0.9/Things HTTP1.1</strong>
+<pre><strong>POST /SensorThings_V1.0/Things HTTP1.1</strong>
 <strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>application/json
 <code>
@@ -773,7 +773,7 @@
 						<p><strong>Header: </strong>Content-Type: application/json</p>
 						<p><strong>Message Body: </strong>A single entity representation including a subset of properties for the specified collection.</p>
 						<p><strong>Example: </strong>Update the Thing with key equals to 1</p>
-<pre><strong>PATCH /SWIOT_V0.9/Things(1) HTTP1.1</strong>
+<pre><strong>PATCH /SensorThings_V1.0/Things(1) HTTP1.1</strong>
 <strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>application/json
 <code>
@@ -796,7 +796,7 @@
 						<p><strong>HTTP Method: </strong>DELETE</p>
 						<p><strong>URI Pattern: </strong>An URI addressing to a single entity.</p>
 						<p><strong>Example: </strong>Delete the Thing with unique identifier equals to 1</p>
-						<pre><strong>HTTP DELETE http://demo.student.geocens.ca:8080/SWIOT_V1.0/Things(1)</strong></pre>
+						<pre><strong>HTTP DELETE http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things(1)</strong></pre>
 						<p>Services must implicitly remove relations to and from an entity when deleting it; clients need not delete the relations explicitly.</p>
 						<p>Services should implicitly delete related entities if required by the following integrity constraints.</p>
 						<br/>
@@ -883,7 +883,7 @@
 					<h3>5.2 Create a Resource in Actuator Profile</h3>
 					<p>The protocol of creating a resource in the taskingCapability profile is similar to that in the datastream profile (<a href="api.html#Create_DatastreamProfile">api.html#Create_DatastreamProfile</a>). Only when creating a taskingCapability entity, the request needs to specify the device protocol (<a href="datamodel.html#TaskingCapability">datamodel.html#TaskingCapability</a>), which is not visible to users in the Read response.</p>
 					<p><strong>Example: </strong>Create a TaskingCapability entity</p>
-<pre><strong>POST /SWIOT_V0.9/TaskingCapabilities HTTP/1.1</strong>
+<pre><strong>POST /SensorThings_V1.0/TaskingCapabilities HTTP/1.1</strong>
 <strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>application/json
 <code>
@@ -916,7 +916,7 @@
 					<p>In addition, the behavior of creating a task entity is the same as submitting a tasking job to the thing. The SensorThings service will compose a request in the device protocol (from the protocol property in the TaskingCapability entity), and send the request at the specified time point. While composing a request in a device protocol, the values of inputs in the task entity will be used to replace the "{ParameterID}" in the device protocol. For instance, the following example requires an SensorThings service to replace "{paramOn}" string in the device protocol with the input value 200. Therefore, with the above taskingCapability entity, the SensorThings service will send a HTTP POST reqeust to http://path.com with a messageBody as "lamp-id=1&on=200" at 2013-04-18T16:15:00-0700.</p>
 					<p>When creating a task entity, if the value of <var>Time</var> property is in the past, the task should be sent to the thing immediately.</p>
 					<p><strong>Example: </strong>Create a Task entity</p>
-<pre><strong>POST /SWIOT_V0.9/Tasks HTTP/1.1</strong>
+<pre><strong>POST /SensorThings_V1.0/Tasks HTTP/1.1</strong>
 <strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>application/json
 <code>
