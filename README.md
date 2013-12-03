@@ -18,3 +18,5 @@ You can even try out an example implementation of the SensorThings API. [The Eco
 #How to give feedback?
 1. [Edit the document on GitHub](https://github.com/OGC-IoT/ogc-iot-api/): if you are familiar with GitHub, please make your proposed changes directly.
 2. [Submit an "issue" on GitHub](https://github.com/OGC-IoT/ogc-iot-api/issues): GitHub offers a simple interface for posting an issue/comment. Just click the green "New Issue" button.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/c437d9d61b61e1b9cca75444ef3f1a2b "githalytics.com")](http://githalytics.com/OGC-IoT/ogc-iot-api)
