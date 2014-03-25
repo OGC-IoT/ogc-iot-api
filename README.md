@@ -10,7 +10,7 @@ This GitHub repository is the latest version of the OGC SensorThings API draft. 
 Based on feedback the final 1.0 specification will likely change, so consider this a work in progress, that you are encouraged to help shape. The OGC SW-IoT working group is particularly interested in making the specification easy to implement, so changes driven by attempted implementations will be given high priority.
 
 #Reading the specification
-You can [read the html version of the specification here](http://ogc-iot.github.io/ogc-iot-api/index.html).
+You can [read the html version of the specification here](http://ogc-iot.github.io/ogc-iot-api/index.html). The raw HTML file is hosted in the [GitHub repository](https://github.com/OGC-IoT/ogc-iot-api).
 
 #Try out the SensorThings API
 You can even try out an example implementation of the SensorThings API. [The Ecosystem page](http://ogc-iot.github.io/ogc-iot-api/ecosystem.html) lists the existing implementations of the SensorThings API. For example, you can [try an example SensorThings server here](http://demo.student.geocens.ca:8080/SensorThings_V1.0/).
