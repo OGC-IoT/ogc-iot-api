@@ -379,9 +379,9 @@ related in some way. The one constraint is that the observations in a datastream
 								</tr>
 							</thead>
 							<tr>
-								<td>URN</td>
-								<td>The URN of the observedProperty/phenomenon.</td>
-								<td>URN</td>
+								<td>URI</td>
+								<td>The URI of the observedProperty/phenomenon.</td>
+								<td>URI</td>
 								<td>One (mandatory)</td>
 							</tr>
 							<tr>
@@ -411,7 +411,7 @@ related in some way. The one constraint is that the observations in a datastream
 						<p><strong>Example: </strong></p>
 						<pre><code>{
 							"UnitOfMeasurement":"Fahrenheit",
-							"URN":"urn:ogc:def:property:noaa:ndbc:Water Temperature",
+							"URI":"urn:ogc:def:property:noaa:ndbc:Water Temperature",
 							"Self-Link":"http://demo.student.geocens.ca:8080/SensorThings_V1.0/ObservedProperties(1)",
 							"ID":1,
 							"Datastreams":
@@ -443,7 +443,7 @@ related in some way. The one constraint is that the observations in a datastream
 							</tr>
 							<tr>
 								<td>ResultType</td>
-								<td>The data type of the ResultValue.</td>
+								<td>The data type of the ResultValue. Service should by default set the ResultType as "Measure" unless users specify a different ResultType when creating an observation.</td>
 								<td>O&M Result Type</td>
 								<td>One (mandatory)</td>
 							</tr>
