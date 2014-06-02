@@ -128,7 +128,7 @@
 							<li><a style="margin-left: 10px;" href="#Body_Response_BatchProcessing">Message Body</a></li>
 						</ul>
 					</li>
-					<li><a href="#StatusCode">StatusCode</a></li>
+					<li><a href="#HTTP_Header_and_Status_Code">HTTP Header and Status Code</a></li>
 				</ul>
 			</div>
 			<hr>
@@ -1118,8 +1118,9 @@ Content-Length: ###
 						</section>
 					</section>
 				</section>
-				<section id="StatusCode">
-					<h2>7. HTTP Status Code</h2>
+				<section id="HTTP_Header_and_Status_Code">
+					<h2>7. HTTP Header and Status Code</h2>
+					<p>All SensorThings service response HTTP Header should contain the <a target="_blank" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Last-Modified</a> header to encourage client-side cache.</p>
 					<p>All status codes used in the SensorThings API follow the <a target="_blank" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">standard HTTP status codes</a>. A high-level explanation of the status codes is as follows:</p>
 					<br/>
 <table class="table table-striped">
