@@ -184,45 +184,41 @@
 					<section id="QueryOptions">
 						<h3>2.2 Query Options</h3>
 						<p class="lead">When users perform the READ action on resource(s), users can apply query options to further process the addressed resources. As the read action is performed through HTTP GET method, the query options are specified as key-value pairs after the question symbol "?" in the request URI. Currently, many of the query options defined in the OGC SensorThings API are similar to the query options in the OData. Therefore, some of the following explanations can be referenced to the OData specification.</p>
-
-						<p class="alert alert-error">NOTE: As our reference implementation hasn't supported all the functions proposed here, we use some examples from the OData test service (http://services.odata.org) to illustrate these functions. As OData might change their demo service, you might find some of the following OData examples not working. And some of the functions, there are no examples available, and these examples uses a pseudo-service root URL (e.g., http://example.com/)</p>
-
-
-
+						<p class="alert alert-error">NOTE: As our reference implementation hasn't supported all the functions proposed here, some example requests shown here may not work as expected.</p>
 					</section>
 					<section id="orderby_query">
 						<h4>2.2.1 $orderby</h4>
 						<p>The $orderby query option is used to specify which properties are used to order the collection of entities identified by the resource path. This query option is only supported when the resource path identifies a collection of entries. The value of the $orderby query option contains a comma separated list of expressions whose primitive result values are used to sort the results. A special case of such an expression is a property path terminating on a primitive property.</p>
 						<p>The expression may include the suffix <i>asc</i> for ascending or <i>desc</i> for descending, separated from the property name by one or more spaces. If asc or desc is not specified, the service must order by the specified property in ascending order.</p>
 						<p>Null values come before non-null values when sorting in ascending order and after non-null values when sorting in descending order.</p>
-						<p><strong>Example 1: </strong><a href="http://services.odata.org/V3/OData/OData.svc/V3/OData/OData.svc/Products?$orderby=Rating">http://services.odata.org/V3/OData/OData.svc/Products?$orderby=Rating</a> returns all Products ordered by the Rating property in ascending order.</p>
-						<p><strong>Example 2: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$orderby=Rating,Category/Name%20desc">http://services.odata.org/V3/OData/OData.svc/Products?$orderby=Rating,Category/Name desc</a> returns all Products ordered by the Rating property in ascending order, then by the Name property of the linked Category entry in descending order.</p>
+						<p><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$orderby=ResultValue">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$orderby=ResultValue</a> returns all Observations ordered by the ResultValue property in ascending order.</p>
+						<p><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$orderby=Datastream/ID desc,Time">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$orderby=Datastreams/ID desc,Time</a> returns all Observations ordered by the ID property of the linked Datastream entry in descending order, then by the Time property of Observations in ascending order.</p>
 					</section>
 					<section id="top_query">
 						<h4>2.2.2 $top</h4>
 						<p>The $top query option specifies a non-negative integer that limits the number of entities returned within a collection. The service must return the number of available entities up to, but not exceeding, the specified value.</p>
 						<p>Usually, the $top query option is used with the $orderby query option. However, while no ordering semantics are mandated, to ensure repeatable results, a data service must always use the same semantics to obtain a full ordering across requests.</p>
 						<p>In addition, if the $top value exceeds the service-driven pagination limitation (i.e., the largest number of entities the service can return in a single response), the $top query option should be discarded and the pagination limitation should be imposed.</p>
-						<p><strong>Example 1: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$top=5">http://services.odata.org/V3/OData/OData.svc/Products?$top=5</a> returns only the first five entities in the Products collection.</p>
-						<p><strong>Example 2: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$top=5&$orderby=Name%20desc">http://services.odata.org/V3/OData/OData.svc/Products?$top=5&$orderby=Name desc</a> returns the first five Product entries returned in descending order when sorted by the Name property.</p>
+						<p><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$top=5">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$top=5</a> returns only the first five entities in the Things collection.</p>
+						<p><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$top=5&$orderby=Time desc">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$top=5&$orderby=Time desc</a> returns the first five Observation entries after sorted by the Time property in descending order.</p>
 					</section>
 					<section id="skip_query">
 						<h4>2.2.3 $skip</h4>
 						<p>The $skip query option specifies that the result must not include the first <var>n</var> entities, where n is a non-negative integer value specified by the $skip query option.</p>
 						<p>Usually, the $skip query option is used with the $orderby query option. However, while no ordering semantics are mandated, to ensure repeatable results, a data service must always use the same semantics to obtain a full ordering across requests.</p>
 						<p>Where $top and $skip are used together, the $skip must be applied before the $top, regardless of the order in which they appear in the request.</p>
-						<p><strong>Example 1: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$skip=5">http://services.odata.org/V3/OData/OData.svc/Products?$skip=5</a> returns Product entities starting with the sixth Product entity in the Products collection.</p>
-						<p><strong>Example 2: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$skip=2&$top=2&$orderby=Rating">http://services.odata.org/V3/OData/OData.svc/Products?$skip=2&$top=2&$orderby=Rating</a> returns the third and fourth Product entities from the collection of all Product entities when the collection is sorted by the Rating property in ascending order.</p>
+						<p><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$skip=5">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$skip=5</a> returns Product entities starting with the sixth Product entity in the Products collection.</p>
+						<p><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$skip=2&$top=2&$orderby=Time">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$skip=2&$top=2&$orderby=Time</a> returns the third and fourth Observation entities from the collection of all Observation entities when the collection is sorted by the Time property in ascending order.</p>
 					</section>
 					<section id="filter_query">
 						<h4>2.2.4 $filter</h4>
 						<p>A URI with a $filter query option identifies a subset of the entries from the collection of entries identified by the resource path of the URI. The subset is determined by selecting only the entries that satisfy the predicate expression specified by the $filter. The value of the $filter option is a Boolean expression.</p>
 						<p>The expression language that is used in $filter operators supports references to properties and literals. The literal values can be strings enclosed in single quotes, numbers and boolean values (true or false) or datetime values represented as datetime'ISO 8601 time string'.</p>
-						<p><strong>Example: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$filter=Price lt 10.00">http://services.odata.org/V3/OData/OData.svc/Products?$filter=Price lt 10.00</a> returns all Products whose Price is less than 10.00.</p>
+						<p><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$filter=ResultValue lt 10.00">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$filter=ResultValue lt 10.00</a> returns all Observations whose ResultValue is less than 10.00.</p>
 						<p>In addition, users may use the properties of linked entities in the $filter predicate. The following are examples of the possible uses of the $filter in the data model of the SensorThings service.</p>
-						<p><strong>Example 1: </strong><a href="http://example.com/Observations?$filter=ObservedProperty/UnitOfMeasurement eq 'Celsius'">ttp://iot-rest.example.com/Observations?$filter=ObservedProperty/UnitOfMeasurement eq 'Celsius'</a> returns all Observations whose UnitOfMeasurement (a property of ObservedProperty) is 'Celsius'.</p>
-						<p><strong>Example 2: </strong><a href="http://example.com/Things?$filter=Locations/Geometry st_within(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)))">http://iot-rest.example.com/Things?$filter=Locations/Geometry st_within(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)))</a> returns Things whose current or past locations were in the polygon defined in the Well-Known Text (WKT).</p>
-						<p><strong>Example 3: </strong><a href="http://example.com/ Things?$filter=Sensors/Observations/FeatureOfInterest/ID eq 'FOI_1' and Sensors/Observations/Time ge datetime'2010-06-01T00:00:00Z' and Sensors/Observations/Time le datetime'2010-07-01T00:00:00Z'">http://iot-rest.example.com/ Things?$filter=Sensors/Observations/FeatureOfInterest/ID eq 'FOI_1' and Sensors/Observations/Time ge datetime'2010-06-01T00:00:00Z' and Sensors/Observations/Time le datetime'2010-07-01T00:00:00Z'</a> returns Things that made any observations on a feature of interest with a unique identifier equals to 'FOI_1' in June 2010.</p>
+						<p><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$filter=Datastream/ObservedProperty/UnitOfMeasurement eq 'Celsius'">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$filter=Datastream/ObservedProperty/UnitOfMeasurement eq 'Celsius'</a> returns all Observations whose UnitOfMeasurement (a property of ObservedProperty) is 'Celsius'.</p>
+						<p><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$filter=Locations/Geometry st_within(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)))">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$filter=Locations/Geometry st_within(POLYGON ((30 10, 10 20, 20 40, 40 40, 30 10)))</a> returns Things whose current or past locations were in the polygon defined in the Well-Known Text (WKT).</p>
+						<p><strong>Example 3: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$filter=Datastreams/Observations/FeatureOfInterest/ID eq 'FOI_1' and Datastreams/Observations/Time ge datetime'2010-06-01T00:00:00Z' and Datastreams/Observations/Time le datetime'2010-07-01T00:00:00Z'">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$filter=Datastreams/Observations/FeatureOfInterest/ID eq 'FOI_1' and Datastreams/Observations/Time ge datetime'2010-06-01T00:00:00Z' and Datastreams/Observations/Time le datetime'2010-07-01T00:00:00Z'</a> returns Things that have any observations on a feature of interest with a unique identifier equals to 'FOI_1' in June 2010.</p>
 					</section>
 					<section id="filterOperations">
 						<h5>2.2.4.1 Built-in filter operations</h5>
@@ -242,47 +238,47 @@
 							<tr>
 								<td>eq</td>
 								<td>Equal</td>
-								<td>/Suppliers?$filter=Address/City eq 'Redmond'</td>
+								<td>/ObservedProperties?$filter=UnitOfMeasurement eq 'Celsius'</td>
 							</tr>
 							<tr>
 								<td>ne</td>
 								<td>Not equal</td>
-								<td>/Suppliers?$filter=Address/City ne 'London'</td>
+								<td>/FeaturesOfInterest?$filter=Geometry/type ne 'Polygon'</td>
 							</tr>
 							<tr>
 								<td>gt</td>
 								<td>Greater than</td>
-								<td>/Products?$filter=Price gt 20</td>
+								<td>/Observations?$filter=ResultValue gt 20.0</td>
 							</tr>
 							<tr>
 								<td>ge</td>
 								<td>Greater than or equal</td>
-								<td>/Products?$filter=Price ge 10</td>
+								<td>/Observations?$filter=ResultValue ge 20.0</td>
 							</tr>
 							<tr>
 								<td>lt</td>
 								<td>Less than</td>
-								<td>/Products?$filter=Price lt 20</td>
+								<td>/Observations?$filter=ResultValue lt 100</td>
 							</tr>
 							<tr>
 								<td>le</td>
 								<td>Less than or equal</td>
-								<td>/Products?$filter=Price le 100</td>
+								<td>/Observations?$filter=ResultValue le 100</td>
 							</tr>
 							<tr>
 								<td>and</td>
 								<td>Logical and</td>
-								<td>/Products?$filter=Price le 200 and Price gt 3.5</td>
+								<td>/Observations?$filter=ResultValue le 3.5 and FeatureOfInterest/ID eq 'FOI_1'</td>
 							</tr>
 							<tr>
 								<td>or</td>
 								<td>Logical or</td>
-								<td>/Products?$filter=Price le 3.5 or Price gt 200</td>
+								<td>/Observations?$filter=ResultValue gt 20 or ResultValue le 3.5</td>
 							</tr>
 							<tr>
 								<td>not</td>
 								<td>Logical negation</td>
-								<td>/Products?$filter=not endswith(Description,'milk')</td>
+								<td>/Things?$filter=not startswith(Description,'test')</td>
 							</tr>
 							<tr>
 								<th align="left" colspan="3">Arithmetic Operators</th>
@@ -290,27 +286,27 @@
 							<tr>
 								<td>add</td>
 								<td>Addition</td>
-								<td>/Products?$filter=Price add 5 gt 10</td>
+								<td>/Observations?$filter=ResultValue add 5 gt 10</td>
 							</tr>
 							<tr>
 								<td>sub</td>
 								<td>Subtraction</td>
-								<td>/Products?$filter=Price sub 5 gt 10</td>
+								<td>/Observations?$filter=ResultValue sub 5 gt 10</td>
 							</tr>
 							<tr>
 								<td>mul</td>
 								<td>Multiplication</td>
-								<td>/Products?$filter=Price mul 2 gt 2000</td>
+								<td>/Observations?$filter=ResultValue mul 2 gt 2000</td>
 							</tr>
 							<tr>
 								<td>div</td>
 								<td>Division</td>
-								<td>/Products?$filter=Price div 2 gt 4</td>
+								<td>/Observations?$filter=ResultValue div 2 gt 4</td>
 							</tr>
 							<tr>
 								<td>mod</td>
 								<td>Modulo</td>
-								<td>/Products?$filter=Price mod 2 eq 0</td>
+								<td>/Observations?$filter=ResultValue mod 2 eq 0</td>
 							</tr>
 							<tr>
 								<th align="left" colspan="3">Grouping Operators</th>
@@ -318,7 +314,7 @@
 							<tr>
 								<td>( )</td>
 								<td>Precedence grouping</td>
-								<td>/Products?$filter=(Price sub 5) gt 10</td>
+								<td>/Observations?$filter=(ResultValue sub 5) gt 10</td>
 							</tr>
 						</table>
 						<br/>
@@ -338,44 +334,44 @@
 							</tr>
 							</thead>
 							<tr>
-								<td>bool substringof</td>
-								<td>substringof('Alfreds',CompanyName)</td>
+								<td>bool substringof(string po, string p1)</td>
+								<td>substringof('Sensor Things',Description)</td>
 							</tr>
 							<tr>
-								<td>bool endswith</td>
-								<td>endswith(CompanyName,'Futterkiste')</td>
+								<td>bool endswith(string po, string p1)</td>
+								<td>endswith(Description,'Things')</td>
 							</tr>
 							<tr>
-								<td>bool startswith</td>
-								<td>startswith(CompanyName,'Alfr')</td>
+								<td>bool startswith(string po, string p1)</td>
+								<td>startswith(Description,'Sensor')</td>
 							</tr>
 							<tr>
-								<td>int length</td>
-								<td>length(CompanyName) eq 19</td>
+								<td>int length(string po)</td>
+								<td>length(Description) eq 13</td>
 							</tr>
 							<tr>
-								<td>int indexof</td>
-								<td>indexof(CompanyName,'lfreds') eq 1</td>
+								<td>int indexof(string po, string p1)</td>
+								<td>indexof(Description,'Sensor') eq 1</td>
 							</tr>
 							<tr>
-								<td>string substring</td>
-								<td>substring(CompanyName,1) eq 'lfreds Futterkiste'</td>
+								<td>string substring(string po, int p1)</td>
+								<td>substring(Description,1) eq 'ensor Things'</td>
 							</tr>
 							<tr>
-								<td>string tolower</td>
-								<td>tolower(CompanyName) eq 'alfreds futterkiste'</td>
+								<td>string tolower(string po)</td>
+								<td>tolower(Description) eq 'sensor things'</td>
 							</tr>
 							<tr>
-								<td>string toupper</td>
-								<td>toupper(CompanyName) eq 'ALFREDS FUTTERKISTE'</td>
+								<td>string toupper(string po)</td>
+								<td>toupper(Description) eq 'SENSOR THINGS'</td>
 							</tr>
 							<tr>
-								<td>string trim</td>
-								<td>trim(CompanyName) eq 'Alfreds Futterkiste'</td>
+								<td>string trim(string po)</td>
+								<td>trim(Description) eq 'Sensor Things'</td>
 							</tr>
 							<tr>
-								<td>string concat</td>
-								<td>concat(concat(City,', '), Country) eq 'Berlin, Germany'</td>
+								<td>string concat(string po, string p1)</td>
+								<td>concat(concat(URI,', '), UnitOfMeasurement) eq 'urn:ogc:def:property:noaa:ndbc:Water Temperature, Celsius'</td>
 							</tr>
 							<thead>
 							<tr>
@@ -383,56 +379,56 @@
 							</tr>
 							</thead>
 							<tr>
-								<td>DateTime now</td>
-								<td>StartTime ge now()</td>
+								<td>DateTime now()</td>
+								<td>Time ge now()</td>
 							</tr>
 							<tr>
-								<td>int year</td>
-								<td>year(BirthDate) eq 0</td>
+								<td>int year(DateTime p0)</td>
+								<td>year(Time) eq 0</td>
 							</tr>
 							<tr>
-								<td>int month</td>
-								<td>month(BirthDate) eq 12</td>
+								<td>int month(DateTime p0)</td>
+								<td>month(Time) eq 12</td>
 							</tr>
 							<tr>
-								<td>int day</td>
-								<td>day(StartTime) eq 8</td>
+								<td>int day(DateTime p0)</td>
+								<td>day(Time) eq 8</td>
 							</tr>
 							<tr>
-								<td>int hour</td>
-								<td>hour(StartTime) eq 1</td>
+								<td>int hour(DateTime p0)</td>
+								<td>hour(Time) eq 1</td>
 							</tr>
 							<tr>
-								<td>int minute</td>
-								<td>minute(StartTime) eq 0</td>
+								<td>int minute(DateTime p0)</td>
+								<td>minute(Time) eq 0</td>
 							</tr>
 							<tr>
-								<td>int second</td>
-								<td>second(StartTime) eq 0</td>
+								<td>int second(DateTime p0)</td>
+								<td>second(Time) eq 0</td>
 							</tr>
 							<tr>
-								<td>double fractionalseconds</td>
-								<td>second(StartTime) eq 0</td>
+								<td>double fractionalseconds(DateTime p0)</td>
+								<td>second(Time) eq 0</td>
 							</tr>
 							<tr>
-								<td>Date date</td>
-								<td>date(StartTime) ne date(EndTime)</td>
+								<td>Date date(DateTime p0)</td>
+								<td>date(Time) ne date(EndTime)</td>
 							</tr>
 							<tr>
-								<td>TimeOfDay time</td>
-								<td>time(StartTime) le StartOfDay</td>
+								<td>TimeOfDay time(DateTime p0)</td>
+								<td>time(Time) le StartOfDay</td>
 							</tr>
 							<tr>
-								<td>int totaloffsetminutes</td>
-								<td>totaloffsetminutes(StartTime) eq 60</td>
+								<td>int totaloffsetminutes(DateTime p0)</td>
+								<td>totaloffsetminutes(Time) eq 60</td>
 							</tr>
 							<tr>
-								<td>DateTimeOffset mindatetime</td>
-								<td>StartTime eq mindatetime()</td>
+								<td>DateTimeOffset mindatetime()</td>
+								<td>Time eq mindatetime()</td>
 							</tr>
 							<tr>
-								<td>DateTimeOffset maxdatetime</td>
-								<td>EndTime eq maxdatetime()</td>
+								<td>DateTimeOffset maxdatetime()</td>
+								<td>Time eq maxdatetime()</td>
 							</tr>
 							<thead>
 							<tr>
@@ -440,16 +436,16 @@
 							</tr>
 							</thead>
 							<tr>
-								<td>double round</td>
-								<td>round(Freight) eq 32</td>
+								<td>double round(double p0)</td>
+								<td>round(ResultValue) eq 32</td>
 							</tr>
 							<tr>
-								<td>double floor</td>
-								<td>floor(Freight) eq 32</td>
+								<td>double floor(double p0)</td>
+								<td>floor(ResultValue) eq 32</td>
 							</tr>
 							<tr>
-								<td>double ceiling</td>
-								<td>ceiling(Freight) eq 33</td>
+								<td>double ceiling(double p0)</td>
+								<td>ceiling(ResultValue) eq 33</td>
 							</tr>
 							<thead>
 							<tr>
@@ -474,15 +470,15 @@
 							</tr>
 							</thead>
 							<tr>
-								<td>double geo.distance</td>
+								<td>double geo.distance(Point p0, Point p1)</td>
 								<td>geo.distance(CurrentPosition, TargetPosition)</td>
 							</tr>
 							<tr>
-								<td>double geo.length</td>
+								<td>double geo.length(LineString p0)</td>
 								<td>geo.length(DirectRoute)</td>
 							</tr>
 							<tr>
-								<td>bool geo.intersects</td>
+								<td>bool geo.intersects(Point p0, Polygon p1)</td>
 								<td>geo.intersects(Position, TargetArea)</td>
 							</tr>
 							<tr>
@@ -528,21 +524,21 @@
 						<h4>2.2.5 $expand</h4>
 						<p>The $expand system query option indicates the related entities that must be represented inline. The value of the $expand query option must be a comma separated list of navigation property names. Additionally each navigation property can be followed by a forward slash and another navigation property to enable identifying a multi-level relationship.</p>
 						
-						<p><strong>Example 1: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Categories?$expand=Products">http://services.odata.org/V3/OData/OData.svc/Categories?$expand=Products</a> returns the collection of Categories as well as each of the Products associated with each Category entity.</p>
-						<p><strong>Example 2: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Categories?$expand=Products/Suppliers">http://services.odata.org/V3/OData/OData.svc/Categories?$expand=Products/Suppliers</a> returns the collection of Categories, the Products associated with each Category, and the Suppliers associated with each Product.</p>
-						<p><strong>Example 3: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$expand=Category,Suppliers">http://services.odata.org/V3/OData/OData.svc/Products?$expand=Category,Suppliers</a> returns the collection of Products as well as the Category and Suppliers associated with each Product.</p>
+						<p><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$expand=Datastreams">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$expand=Locations</a> returns the collection of Things as well as each of the Datastreams associated with each Category entity.</p>
+						<p><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$expand=Datastreams/ObservedProperty">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$expand=Datastreams/ObservedProperty</a> returns the collection of Things, the Datastreams associated with each Thing, and the ObservedProperty associated with each Datastream.</p>
+						<p><strong>Example 3: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)?$expand=Observations,ObservedProperty">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)?$expand=Observations,ObservedProperty</a> returns the Datastream whose ID is 1 as well as the Observations and ObservedProperty associated with this Datastream.</p>
 					</section>
 					<section id="select_query">
 						<h4>2.2.6 $select</h4>
 						<p>A data service URI with a $select query option identifies the same set of entries as a URI without a $select query option; however, the value of $select specifies that a response from an SensorThings service should return a subset of the properties. The value of a $select query option is a comma-separated list of selection clauses. Each selection clause may be a property name (including navigation property names).</p>
-						<p><strong>Example 1: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$select=Price,Name">http://services.odata.org/V3/OData/OData.svc/Products?$select=Price,Name</a> returns only the Price and Name properties for each Product entity.</p>
-						<p><strong>Example 2: </strong><a href="http://service.odata.org/Categories?$select=Name,Products&$expand=Products/Supplier">http://service.odata.org/Categories?$select=Name,Products&$expand=Products/Supplier</a> returns the Name properties of the Category entries, and all the properties of the entries identified by the Products and Suppliers navigation properties.</p>
+						<p><strong>Example 1: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$select=ResultValue,Time">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Observations?$select=ResultValue,Time</a> returns only the ResultValue and Time properties for each Observation entity.</p>
+						<p><strong>Example 2: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)?$select=ID,Observations&$expand=Observations/FeatureOfInterest">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Datastreams(1)?$select=ID,Observations&$expand=Observations/FeatureOfInterest</a> returns the ID properties of the Datastream entity, and all the properties of the entity identified by the Observations and FeatureOfInterest navigation properties.</p>
 					</section>
 					<section id="count_query">
 						<h4>2.2.7 $count</h4>
 						<p>The $count query option with a value of "true" specifies that the total count of entities within a collection matching the request must be returned along with the result. The $count system query option ignores any $top, $skip, or $expand query options, and returns the total count of results across all pages including only those results matching any specified $filter.</p>
 						<p>A $count with a value of "false" (or not specified) hints that the service should not return a count.</p>
-						<p><strong>Example: </strong><a href="http://services.odata.org/V3/OData/OData.svc/Products?$count=true">http://services.odata.org/V3/OData/OData.svc/Products?$count=true</a> returns, along with the results, the total number of products in the set.</p>
+						<p><strong>Example: </strong><a href="http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$count=true">http://demo.student.geocens.ca:8080/SensorThings_V1.0/Things?$count=true</a> returns, along with the Things, the total number of Thing entities.</p>
 					</section>
 				</section>
 				<section id="capabilities">
@@ -961,9 +957,9 @@
 						<section id="Headers_Request_BatchProcessing">
 							<h4>6.1.1 Headers</h4>
 							<p>Batch requests allow grouping multiple operations, as described in <a href="api.html#DatastreamProfile">DatastreamProfile</a> and <a href="api.html#TaskingCapabilityProfile">TaskingCapabilityProfile</a>, into a single HTTP request payload.</p>
-							<p>Batch Requests are submitted as a single HTTP POST request to the $batch endpoint of a service. The batch request must contain a Content-Type header specifying a content type of "multipart/mixed" and a boundary specification. The example below shows a GUID as a boundary and "OData/OData.svc"for the URI of the service. <Batch Request Body> is defined in the Batch Request Body section below.</p>
-<pre><strong>POST OData/OData.svc/$batch HTTP/1.1</strong>
-<strong>Host: </strong>services.odata.org
+							<p>Batch Requests are submitted as a single HTTP POST request to the $batch endpoint of a service. The batch request must contain a Content-Type header specifying a content type of "multipart/mixed" and a boundary specification. The example below shows a GUID as a boundary and "/SensorThings_V1.0/"for the URI of the service. <Batch Request Body> is defined in the Batch Request Body section below.</p>
+<pre><strong>POST /SensorThings_V1.0/$batch HTTP/1.1</strong>
+<strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>DataServiceVersion: </strong>1.0
 <strong>MaxDataServiceVersion: </strong>2.0
 <strong>Content-Type: </strong>multipart/mixed; boundary=batch(36522ad7-fc75-4b56-8c71-56071383e77b)
@@ -971,11 +967,11 @@
 <var>BATCH_REQUEST_BODY</var></code></pre>
 							<p>The batch request boundary must be quoted if it contains any of the following special characters:</p>
 <pre><code>( ) < > @ , ; : / " [ ] ? =</code></pre>
-							<p>In addition to the Content-Type header, the Batch request may contain DataServiceVersion headers or other HTTP Headers which apply to the entire Batch Request as appropriate. In the example above, DataServiceVersion has a value of 1.0 representing the version of the OData specification used to generate the request, and MaxDataServiceVersion has a value of 2.0 representing the maximum response version the client is prepared to accept.</p>
+							<p>In addition to the Content-Type header, the Batch request may contain DataServiceVersion headers or other HTTP Headers which apply to the entire Batch Request as appropriate. In the example above, DataServiceVersion has a value of 1.0 representing the version of the SensorThings specification used to generate the request, and MaxDataServiceVersion has a value of 2.0 representing the maximum response version the client is prepared to accept.</p>
 						</section>
 						<section id="Body_Request_BatchProcessing">
 							<h4>6.1.2 Message Body</h4>
-							<p>The body of a Batch Request is made up of an ordered series of retrieve operations (as described in [OData-Operations] ) and/or ChangeSets. A ChangeSet is an atomic unit of work that is made up of an unordered group of one or more of the insert, update or delete operations described in < a href="/developers/protocols/operations">[OData:Operations]. ChangeSets cannot contain retrieve requests and cannot be nested (i.e. a ChangeSet cannot contain a ChangeSet).</p>
+							<p>The body of a Batch Request is made up of an ordered series of retrieve operations (as described in <a href="#URIComponents">URI Components</a>) and/or ChangeSets. A ChangeSet is an atomic unit of work that is made up of an unordered group of one or more of the insert, update or delete operations described in <a href="#DatastreamProfile">Sensing Profile</a> and <a href="#TaskingCapabilityProfile">Tasking Profile</a>. ChangeSets cannot contain retrieve requests and cannot be nested (i.e. a ChangeSet cannot contain a ChangeSet).</p>
 							<p>In the Batch request body, each retrieve request and ChangeSet is represented as a distinct MIME part and is separated by the boundary marker defined in the Content-Type header of the request. The contents of the MIME part which represents a ChangeSet is itself a multipart MIME document with one part for each operation that makes up the ChangeSet.</p>
 							<p>Each MIME part representing a retrieve request or ChangeSet within the Batch includes both Content-Type and Content-Transfer-Encoding MIME headers as seen in the examples below. The batch request boundary is the name specified in the Content-Type Header for the batch.</p>
 							<p>The example below shows a sample batch request that contains the following operations in the order listed:</p>
@@ -989,16 +985,16 @@
 								</li>
 								<li>A second retrieve request</li>
 							</ul>
-							<p>Note: In the example, request bodies are excluded in favor of English descriptions inside '<>' brackets to simplify the example.</p>
-<pre><strong>POST OData/OData.svc/$batch HTTP/1.1</strong>
-<strong>Host: </strong>services.odata.org
+							<p>Note: In the example, request bodies are excluded in favor of English descriptions inside '{}' brackets to simplify the example.</p>
+<pre><strong>POST /SensorThings_V1.0/$batch HTTP/1.1</strong>
+<strong>Host: </strong>demo.student.geocens.ca:8080
 <strong>Content-Type: </strong>multipart/mixed; boundary=batch(36522ad7-fc75-4b56-8c71-56071383e77b)
 <code>
 --batch_36522ad7-fc75-4b56-8c71-56071383e77b
 Content-Type: application/http 
 Content-Transfer-Encoding:binary
 
-GET /service/Customers('ALFKI') HTTP/1.1
+GET /Things(1) HTTP/1.1
 Host: host
 
 --batch_36522ad7-fc75-4b56-8c71-56071383e77b 
@@ -1009,24 +1005,24 @@ Content-Length: ###
 Content-Type: application/http 
 Content-Transfer-Encoding: binary 
 
-POST /service/Customers HTTP/1.1 
+POST /Things HTTP/1.1 
 Host: host  
 Content-Type: application/atom+xml;type=entry 
 Content-Length: ### 
 
-<AtomPub representation of a new Customer> 
+{ JSON representation of a new Thing }
 
 --changeset(77162fcd-b8da-41ac-a9f8-9357efbbd621) 
 Content-Type: application/http 
 Content-Transfer-Encoding:binary 
 
-PUT /service/Customers('ALFKI') HTTP/1.1 
+PUT /Things(1) HTTP/1.1 
 Host: host 
 Content-Type: application/json 
 If-Match: xxxxx 
 Content-Length: ### 
 
-<JSON representation of Customer ALFKI> 
+{ new JSON representation of Thing 1 }
 
 --changeset(77162fcd-b8da-41ac-a9f8-9357efbbd621)-- 
 
@@ -1034,7 +1030,7 @@ Content-Length: ###
 Content-Type: application/http 
 Content-Transfer-Encoding:binary 
 
-GET service/Products HTTP/1.1 
+GET Things(3) HTTP/1.1 
 Host: host 
 
 --batch(36522ad7-fc75-4b56-8c71-56071383e77b)--</code></pre>
@@ -1063,8 +1059,8 @@ Host: host
 						<section id="Body_Response_BatchProcessing">
 							<h4>6.3.2 Message Body</h4>
 							<p>Within the body of the batch response is a response for each retrieve request and ChangeSet that was in the associated Batch request. The order of responses in the response body must match the order of requests in the Batch request. Each response includes a Content-Type header with a value of "application/http", and a Content-Transfer-Encoding MIME header with a value of "binary".</p>
-							<p>A response to a retrieve request is formatted exactly as it would have appeared outside of a batch as described in [OData-Operations] .</p>
-							<p>The body of a ChangeSet response is either a response for all the successfully processed change request within the ChangeSet, formatted exactly as it would have appeared outside of a batch, as described in [OData-Operations] , or a single response indicating a failure of the entire ChangeSet, as described in [OData-Operations].</p>
+							<p>A response to a retrieve request is formatted exactly as it would have appeared outside of a batch as described in <a href="#URIComponents">URI Components</a>.</p>
+							<p>The body of a ChangeSet response is either a response for all the successfully processed change request within the ChangeSet, formatted exactly as it would have appeared outside of a batch, as described in <a href="#DatastreamProfile">Sensing Profile</a> and <a href="#TaskingCapabilityProfile">Tasking Profile</a>, or a single response indicating a failure of the entire ChangeSet, as described in <a href="#DatastreamProfile">Sensing Profile</a> and <a href="#TaskingCapabilityProfile">Tasking Profile</a>.</p>
 							<p>For example, referencing the batch request in section 2.2, assume all the requests except the final retrieve request succeed. In this case the Batch response body would be as shown in the following example.</p>
 <pre><strong>HTTP/1.1 202 Accepted</strong>
 <strong>DataServiceVersion: </strong>1.0
@@ -1079,7 +1075,7 @@ HTTP/1.1 200 Ok
 Content-Type: application/atom+xml;type=entry
 Content-Length: ###
 
-<AtomPub representation of the Customer entity with EntityKey ALFKI>
+{ JSON representation of the Thing entity with ID equals to 1 }
 
 --batch(36522ad7-fc75-4b56-8c71-56071383e77b)
 Content-Type: multipart/mixed; boundary=changeset(77162fcd-b8da-41ac-a9f8-9357efbbd621)
@@ -1091,10 +1087,10 @@ Content-Transfer-Encoding: binary
 
 HTTP/1.1 201 Created
 Content-Type: application/atom+xml;type=entry
-Location: http://host/service.svc/Customer('POIUY')
+Location: http://demo.student.geocens.ca:8080/SensorThings_V1.0/Thing(2)
 Content-Length: ###
 
-<AtomPub representation of a new Customer entity>
+{ JSON representation of a new Thing entity }
 
 --changeset(77162fcd-b8da-41ac-a9f8-9357efbbd621)
 Content-Type: application/http
