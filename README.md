@@ -1,6 +1,6 @@
 # OGC SensorThings API
 
-This is the home of the SensorThings API, a [Draft Standard](http://ogc-iot.github.io/ogc-iot-api/) of the [Open Geospatial Consortium](www.opengeospatial.org/) SensorThings API. The OGC SensorThings API is a work from the OGC [Sensor Web Interface for Internet of Things Standards Working Group (SW-IoT SWG)](http://www.opengeospatial.org/projects/groups/sweiotswg).
+This is the home of the SensorThings API, a [Draft Standard](http://ogc-iot.github.io/ogc-iot-api/) of the [Open Geospatial Consortium](www.opengeospatial.org/) SensorThings API. The OGC SensorThings API is a work from the OGC [SensorThings API Standards Working Group (SensorThings SWG)](http://www.opengeospatial.org/projects/groups/sweiotswg).
  
 The OGC SensorThings API is an OGC candidate standard for providing an open and unified way to interconnect IoT devices, data, and applications over the Web. The SensorThings API is an open standard, builds on Web protocols and applies an easy-to-use RESTful style. The result is to provide a uniform way to expose the full potential of the Internet of Things.
 
