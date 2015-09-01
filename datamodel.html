@@ -61,6 +61,18 @@
 						<hr>
 					<p class="lead">The OGC SensorThings API data model consists of two parts: (1) the Sensing profile and (2) the Tasking profile. The Sensing profile allows IoT devices and applications to CREATE, READ, UPDATE, and DELETE (i.e., HTTP POST, GET, PATCH, and DELETE) IoT data and metadata in a SensorThings service.</p>
 					<p class="lead">Managing and retrieving observations and metadata from IoT sensor systems is one of the most common use cases. As a result, the Sensing profile is designed based on the ISO/OGC <a href="http://www.opengeospatial.org/standards/om">Observation and Measurement (O&M)</a> model [OGC and ISO 19156:2011].</p>
+					<p class="lead">SensorThings API has the following resources:
+						<li><code class="lead">Thing</code></li>
+						<li><code class="lead">Locations</code></li>
+						<li><code class="lead">HistoricalLocations</code></li>
+						<li><code class="lead">Datastream</code></li>
+						<li><code class="lead">ObservedProperty</code></li>
+						<li><code class="lead">Sensor</code></li>
+						<li><code class="lead">Observation</code></li>
+						<li><code class="lead">FeatureOfInterest</code></li>
+					</p>
+					<hr>
+					<h2>2. O&M: Conceptual Model of the SensorThings API</h2>
 					<p class="lead">The key to the model is that an <code class="lead">Observation</code> is modeled as an act that produces a result whose value is an estimate of a property of the observation target or <code class="lead">FeatureOfInterest</code>. An <code class="lead">Observation</code> instance is classified by its event time (e.g., resultTime and phenonmenonTime), <code class="lead">FeatureOfInterest</code>, <code class="lead">ObservedProperty</code>, and the procedure used (often a <code class="lead">Sensor</code>).</p>
 					<p class="lead">Moreover, <code class="lead">Things</code> are also modeled in the SensorThings API. Further the geographical <code class="lead">Locations</code> of <code class="lead">Things</code> are useful in almost every application and as a result are included as well.</p>
 					<p class="lead">In the Sensing profile, a <code class="lead">Thing</code> has <code class="lead">Locations</code> and <code class="lead">HistoricalLocations.</code> A <code class="lead">Thing</code> also can have multiple <code class="lead">Datastreams</code>. A <code class="lead">Datastream</code> is a collection of <code class="lead">Observations</code> grouped by the same <code class="lead">ObservedProperty</code> and <code class="lead">Sensor</code>. An <code class="lead">Observation</code> is an event performed by a Sensor that produces a result whose value is an estimate of an <code class="lead">ObservedProperty</code> of the <code class="lead">FeatureOfInterest</code>.
