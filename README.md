@@ -13,7 +13,7 @@ Based on feedback the final 1.0 specification will likely change, so consider th
 You can [read the html version of the specification here](http://ogc-iot.github.io/ogc-iot-api/index.html). The raw HTML file is hosted in the [GitHub repository](https://github.com/OGC-IoT/ogc-iot-api).
 
 #Try out the SensorThings API
-You can even try out an example implementation of the SensorThings API. [The Ecosystem page](http://ogc-iot.github.io/ogc-iot-api/ecosystem.html) lists the existing implementations of the SensorThings API. For example, you can [try an example SensorThings server here](http://demo.student.geocens.ca:8080/SensorThings_V1.0/).
+You can even try out an example implementation of the SensorThings API. [The Ecosystem page](http://ogc-iot.github.io/ogc-iot-api/ecosystem.html) lists the existing implementations of the SensorThings API. For example, you can [try an example SensorThings server here](ogcpilot.sensorup.com:8080/OGCSensorThings/v1.0).
 
 #How to give feedback?
 1. [Edit the document on GitHub](https://github.com/OGC-IoT/ogc-iot-api/): if you are familiar with GitHub, please make your proposed changes directly.
